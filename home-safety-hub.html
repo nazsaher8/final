@@ -1,0 +1,1674 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Home Safety Hub | HerShield</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        /* =========================================
+           HOME SAFETY HUB
+        ========================================== */
+.navbar {
+    width: 100%;
+    height: 78px;
+    padding: 0 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(255, 255, 255, 0.96);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(12px);
+}
+
+
+/* ---------- LOGO ---------- */
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    font-size: 23px;
+    font-weight: 800;
+    color: var(--dark);
+}
+
+.logo > span:last-child > span {
+    color: var(--primary);
+}
+
+.logo-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #6256d9, #4d7cff);
+    color: white;
+    font-size: 21px;
+    box-shadow: 0 8px 20px rgba(98, 86, 217, 0.25);
+}
+
+
+/* ---------- NAVIGATION ---------- */
+
+.navbar nav {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.navbar nav > a,
+.dropdown > a {
+    color: #555577;
+    font-size: 14px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.navbar nav > a:hover,
+.dropdown > a:hover,
+.navbar nav .active {
+    color: var(--primary);
+}
+
+
+/* ---------- DROPDOWN ---------- */
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 30px;
+    left: -20px;
+    width: 210px;
+    padding: 10px;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: 0.3s;
+}
+
+.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 10px 12px;
+    border-radius: 9px;
+    color: #555577;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.dropdown-menu a:hover {
+    background: var(--lavender);
+    color: var(--primary);
+}
+
+
+/* ---------- NAV BUTTONS ---------- */
+
+.nav-buttons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.login-btn {
+    padding: 10px 19px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    color: var(--primary);
+    font-size: 13px;
+    font-weight: 700;
+    transition: 0.3s;
+}
+
+.login-btn:hover {
+    background: var(--lavender);
+}
+
+.emergency-btn {
+    padding: 11px 18px;
+    border-radius: 10px;
+    background: #fff0f3;
+    color: var(--danger);
+    font-size: 13px;
+    font-weight: 700;
+    transition: 0.3s;
+}
+
+.emergency-btn:hover {
+    background: var(--danger);
+    color: white;
+}
+
+
+/* ---------- MOBILE BUTTON ---------- */
+
+.menu-btn {
+    display: none;
+    border: none;
+    background: var(--lavender);
+    color: var(--primary);
+    font-size: 23px;
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+        .home-hero {
+            min-height: 570px;
+            padding: 80px 8%;
+
+            display: flex;
+            align-items: center;
+            gap: 60px;
+
+            background:
+                radial-gradient(circle at 85% 20%,
+                rgba(101,150,240,.18),
+                transparent 30%),
+
+                radial-gradient(circle at 15% 80%,
+                rgba(159,125,226,.18),
+                transparent 30%),
+
+                linear-gradient(135deg,
+                #faf8ff,
+                #eef6ff);
+
+            overflow: hidden;
+        }
+
+        .home-content {
+            width: 55%;
+        }
+
+        .home-badge {
+            display: inline-block;
+
+            padding: 10px 18px;
+
+            background: #e9e2ff;
+
+            color: #604ca3;
+
+            border-radius: 30px;
+
+            font-weight: 800;
+        }
+
+        .home-content h1 {
+            margin-top: 22px;
+
+            font-size: 54px;
+
+            line-height: 1.08;
+
+            color: #263d73;
+        }
+
+        .home-content h1 span {
+            color: #7b61d2;
+        }
+
+        .home-content p {
+            margin-top: 20px;
+
+            max-width: 650px;
+
+            font-size: 18px;
+
+            line-height: 1.8;
+
+            color: #606d84;
+        }
+
+        .home-buttons {
+            display: flex;
+
+            gap: 15px;
+
+            margin-top: 30px;
+
+            flex-wrap: wrap;
+        }
+
+        .home-button {
+            padding: 14px 26px;
+
+            border-radius: 30px;
+
+            text-decoration: none;
+
+            font-weight: 800;
+
+            transition: .3s;
+        }
+
+        .home-primary {
+            background: linear-gradient(135deg,
+            #617ddd,
+            #8064d8);
+
+            color: white;
+
+            box-shadow:
+                0 12px 28px rgba(88,94,180,.22);
+        }
+
+        .home-secondary {
+            background: white;
+
+            color: #53659b;
+
+            border: 1px solid #dce2f3;
+        }
+
+        .home-button:hover {
+            transform: translateY(-4px);
+        }
+
+
+        /* =========================================
+           HOME VISUAL
+        ========================================== */
+
+        .home-visual {
+            width: 45%;
+
+            display: flex;
+
+            justify-content: center;
+        }
+
+        .house-card {
+            width: 380px;
+            height: 390px;
+
+            position: relative;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            background: rgba(255,255,255,.78);
+
+            border: 1px solid #e0e5f2;
+
+            border-radius: 35px;
+
+            box-shadow:
+                0 30px 70px rgba(54,72,130,.16);
+        }
+
+        .house {
+            position: relative;
+
+            width: 210px;
+            height: 155px;
+
+            margin-top: 55px;
+
+            background: linear-gradient(135deg,
+            #dce9ff,
+            #eee6ff);
+
+            border-radius: 8px;
+
+            box-shadow:
+                0 20px 30px rgba(73,91,150,.15);
+        }
+
+        .roof {
+            position: absolute;
+
+            width: 0;
+            height: 0;
+
+            border-left: 125px solid transparent;
+            border-right: 125px solid transparent;
+            border-bottom: 105px solid #738ed8;
+
+            top: -100px;
+            left: -20px;
+        }
+
+        .door {
+            position: absolute;
+
+            width: 45px;
+            height: 75px;
+
+            bottom: 0;
+            left: 83px;
+
+            background: #7f70bd;
+
+            border-radius: 6px 6px 0 0;
+        }
+
+        .door::after {
+            content: "";
+
+            position: absolute;
+
+            width: 6px;
+            height: 6px;
+
+            background: #e8dfff;
+
+            border-radius: 50%;
+
+            right: 7px;
+            top: 38px;
+        }
+
+        .window {
+            position: absolute;
+
+            width: 43px;
+            height: 43px;
+
+            background: #ffffff;
+
+            border: 5px solid #91a9e6;
+
+            border-radius: 5px;
+
+            top: 30px;
+        }
+
+        .window-left {
+            left: 20px;
+        }
+
+        .window-right {
+            right: 20px;
+        }
+
+        .window::before {
+            content: "";
+
+            position: absolute;
+
+            left: 50%;
+
+            top: 0;
+
+            height: 100%;
+
+            border-left: 2px solid #91a9e6;
+        }
+
+        .window::after {
+            content: "";
+
+            position: absolute;
+
+            top: 50%;
+
+            left: 0;
+
+            width: 100%;
+
+            border-top: 2px solid #91a9e6;
+        }
+
+        .house-shield {
+            position: absolute;
+
+            top: 40px;
+
+            right: 25px;
+
+            width: 65px;
+            height: 75px;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            background: white;
+
+            border-radius: 16px;
+
+            box-shadow:
+                0 12px 25px rgba(50,70,130,.15);
+
+            font-size: 32px;
+        }
+
+
+        /* =========================================
+           INTRO
+        ========================================== */
+
+        .home-intro {
+            padding: 85px 8%;
+
+            text-align: center;
+        }
+
+        .home-intro h2 {
+            font-size: 38px;
+
+            color: #293f76;
+        }
+
+        .home-intro p {
+            max-width: 760px;
+
+            margin: 15px auto 0;
+
+            color: #68758c;
+
+            line-height: 1.8;
+        }
+
+
+        /* =========================================
+           HOME SAFETY AREAS
+        ========================================== */
+
+        .areas-section {
+            padding: 30px 8% 90px;
+
+            background: #f8f9ff;
+        }
+
+        .section-title {
+            text-align: center;
+
+            margin-bottom: 45px;
+        }
+
+        .section-title h2 {
+            font-size: 37px;
+
+            color: #293f76;
+        }
+
+        .section-title p {
+            margin-top: 10px;
+
+            color: #6d7890;
+        }
+
+        .areas-grid {
+            display: grid;
+
+            grid-template-columns:
+            repeat(4,1fr);
+
+            gap: 22px;
+        }
+
+        .area-card {
+            background: white;
+
+            padding: 30px 24px;
+
+            border-radius: 22px;
+
+            border: 1px solid #e7eaf4;
+
+            box-shadow:
+                0 12px 30px rgba(55,75,130,.07);
+
+            transition: .3s;
+        }
+
+        .area-card:hover {
+            transform: translateY(-8px);
+
+            box-shadow:
+                0 20px 40px rgba(55,75,130,.13);
+        }
+
+        .area-icon {
+            width: 65px;
+            height: 65px;
+
+            display: flex;
+
+            justify-content: center;
+            align-items: center;
+
+            background:
+                linear-gradient(135deg,
+                #eee8ff,
+                #e5f0ff);
+
+            border-radius: 18px;
+
+            font-size: 30px;
+
+            margin-bottom: 20px;
+        }
+
+        .area-card h3 {
+            color: #30477c;
+
+            margin-bottom: 10px;
+        }
+
+        .area-card p {
+            color: #6b778e;
+
+            font-size: 14px;
+
+            line-height: 1.7;
+        }
+
+
+        /* =========================================
+           HOME PLAN
+        ========================================== */
+
+        .plan-section {
+            padding: 90px 8%;
+        }
+
+        .plan-container {
+            display: grid;
+
+            grid-template-columns:
+            1fr 1fr;
+
+            gap: 60px;
+
+            align-items: center;
+        }
+
+        .plan-text h2 {
+            font-size: 38px;
+
+            color: #293f76;
+
+            margin-bottom: 18px;
+        }
+
+        .plan-text > p {
+            color: #68758c;
+
+            line-height: 1.8;
+
+            margin-bottom: 25px;
+        }
+
+        .plan-point {
+            display: flex;
+
+            gap: 15px;
+
+            margin: 18px 0;
+        }
+
+        .plan-point-icon {
+            min-width: 47px;
+            height: 47px;
+
+            display: flex;
+
+            justify-content: center;
+            align-items: center;
+
+            border-radius: 14px;
+
+            background: #eee8ff;
+
+            font-size: 21px;
+        }
+
+        .plan-point h4 {
+            color: #3a4e7e;
+
+            margin-bottom: 5px;
+        }
+
+        .plan-point p {
+            color: #727d91;
+
+            font-size: 13px;
+
+            line-height: 1.6;
+        }
+
+
+        /* =========================================
+           HOME CHECKLIST
+        ========================================== */
+
+        .home-check-card {
+            padding: 35px;
+
+            border-radius: 28px;
+
+            background:
+                linear-gradient(145deg,
+                #f2edff,
+                #eaf4ff);
+
+            border: 1px solid #e1e5f2;
+
+            box-shadow:
+                0 20px 50px rgba(58,75,130,.12);
+        }
+
+        .home-check-card h3 {
+            color: #30477c;
+
+            font-size: 24px;
+
+            margin-bottom: 8px;
+        }
+
+        .home-check-card > p {
+            color: #707b91;
+
+            font-size: 14px;
+
+            line-height: 1.6;
+
+            margin-bottom: 22px;
+        }
+
+        .home-check {
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+            padding: 13px 0;
+
+            color: #53627d;
+
+            font-size: 14px;
+
+            font-weight: 600;
+        }
+
+        .home-check input {
+            width: 19px;
+            height: 19px;
+
+            accent-color: #8064d8;
+        }
+
+        .home-progress {
+            margin-top: 20px;
+        }
+
+        .home-progress-top {
+            display: flex;
+
+            justify-content: space-between;
+
+            color: #52617c;
+
+            font-size: 13px;
+
+            font-weight: 800;
+
+            margin-bottom: 8px;
+        }
+
+        .home-progress-bar {
+            height: 10px;
+
+            background: #dce3f1;
+
+            border-radius: 20px;
+
+            overflow: hidden;
+        }
+
+        .home-progress-fill {
+            width: 0%;
+
+            height: 100%;
+
+            background:
+                linear-gradient(90deg,
+                #8064d8,
+                #5e96e8);
+
+            transition: .3s;
+        }
+
+
+        /* =========================================
+           BOUNDARIES
+        ========================================== */
+
+        .boundaries-section {
+            padding: 90px 8%;
+
+            background:
+                linear-gradient(135deg,
+                #f7f3ff,
+                #eef7ff);
+        }
+
+        .boundary-grid {
+            display: grid;
+
+            grid-template-columns:
+            repeat(2,1fr);
+
+            gap: 25px;
+
+            max-width: 1050px;
+
+            margin: auto;
+        }
+
+        .boundary-card {
+            padding: 28px;
+
+            background: rgba(255,255,255,.88);
+
+            border-radius: 22px;
+
+            box-shadow:
+                0 10px 28px rgba(55,75,130,.08);
+        }
+
+        .boundary-card h3 {
+            color: #30477c;
+
+            margin-bottom: 12px;
+        }
+
+        .boundary-card p {
+            color: #707b91;
+
+            line-height: 1.7;
+
+            font-size: 14px;
+        }
+
+
+        /* =========================================
+           SUPPORT CTA
+        ========================================== */
+
+        .home-cta {
+            padding: 40px 8% 90px;
+        }
+
+        .home-cta-box {
+            padding: 65px 30px;
+
+            text-align: center;
+
+            color: white;
+
+            border-radius: 32px;
+
+            background:
+                linear-gradient(135deg,
+                #596fc4,
+                #8064d8);
+
+            box-shadow:
+                0 25px 55px rgba(72,82,160,.23);
+        }
+
+        .home-cta-box h2 {
+            font-size: 38px;
+
+            margin-bottom: 15px;
+        }
+
+        .home-cta-box p {
+            max-width: 650px;
+
+            margin: auto;
+
+            line-height: 1.8;
+
+            opacity: .93;
+        }
+
+        .home-cta-button {
+            display: inline-block;
+
+            margin-top: 25px;
+
+            padding: 14px 28px;
+
+            background: white;
+
+            color: #596bb3;
+
+            border-radius: 30px;
+
+            text-decoration: none;
+
+            font-weight: 900;
+        }
+
+
+        /* =========================================
+           RESPONSIVE
+        ========================================== */
+
+        @media(max-width: 1000px) {
+
+            .home-hero {
+                flex-direction: column;
+
+                text-align: center;
+            }
+
+            .home-content,
+            .home-visual {
+                width: 100%;
+            }
+
+            .home-buttons {
+                justify-content: center;
+            }
+
+            .areas-grid {
+                grid-template-columns:
+                repeat(2,1fr);
+            }
+
+            .plan-container {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+
+        @media(max-width: 650px) {
+
+            .home-content h1 {
+                font-size: 38px;
+            }
+
+            .house-card {
+                width: 100%;
+                max-width: 350px;
+            }
+
+            .areas-grid,
+            .boundary-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .home-intro h2,
+            .section-title h2,
+            .plan-text h2 {
+                font-size: 30px;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+<!-- =========================================
+     NAVIGATION
+========================================== -->
+
+ <header class="navbar">
+
+        <a href="index.html" class="logo">
+            <span class="logo-icon">🛡️</span>
+            <span>Her<span>Shield</span></span>
+        </a>
+
+        <nav id="navMenu">
+
+            <a href="index.html" class="active">Home</a>
+
+            <div class="dropdown">
+                <a href="#hubs">Hubs ▾</a>
+
+                <div class="dropdown-menu">
+                    <a href="campus-hub.html">Campus Hub</a>
+                    <a href="workplace-hub.html">Workplace Hub</a>
+                    <a href="public-space-hub.html">Public Space Hub</a>
+                    <a href="digital-safety-hub.html">Digital Safety Hub</a>
+                    <a href="home-safety-hub.html">Home Safety Hub</a>
+                    <a href="support-hub.html">Support Hub</a>
+                    <a href="legal-help-hub.html">Legal Help Hub</a>
+                </div>
+            </div>
+
+            <a href="About.html">About</a>
+            <a href="contact.html">Contact</a>
+
+        </nav>
+
+        <div class="nav-buttons">
+            <a href="login.html" class="login-btn">Login</a>
+            <a href="emergancy.html" class="emergency-btn">Emergency</a>
+        </div>
+
+        <button class="menu-btn" id="menuBtn">☰</button>
+
+    </header>
+
+
+
+<!-- =========================================
+     HERO
+========================================== -->
+
+<section class="home-hero">
+
+
+    <div class="home-content">
+
+        <span class="home-badge">
+            🏠 HerShield Home Safety Hub
+        </span>
+
+
+        <h1>
+            Safety Starts
+            <span>Where You Live.</span>
+        </h1>
+
+
+        <p>
+            Home should be a place where you can feel secure,
+            respected and comfortable. Learn about healthy
+            boundaries, trusted support, privacy and practical
+            safety planning for situations at home.
+        </p>
+
+
+        <div class="home-buttons">
+
+            <a href="#home-check"
+               class="home-button home-primary">
+                Check My Home Plan →
+            </a>
+
+
+            <a href="#home-areas"
+               class="home-button home-secondary">
+                Explore Safety Areas
+            </a>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- HOME VISUAL -->
+
+    <div class="home-visual">
+
+        <div class="house-card">
+
+            <div class="house-shield">
+                🛡️
+            </div>
+
+
+            <div class="house">
+
+                <div class="roof"></div>
+
+                <div class="window window-left"></div>
+
+                <div class="window window-right"></div>
+
+                <div class="door"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     INTRO
+========================================== -->
+
+<section class="home-intro">
+
+    <h2>
+        A Safer Home Begins With Awareness
+    </h2>
+
+
+    <p>
+        Safety at home can involve physical surroundings,
+        digital privacy, personal boundaries and knowing
+        who you can contact when you need support. A safety
+        plan should be practical and appropriate for your
+        own circumstances.
+    </p>
+
+</section>
+
+
+
+<!-- =========================================
+     HOME SAFETY AREAS
+========================================== -->
+
+<section class="areas-section"
+         id="home-areas">
+
+
+    <div class="section-title">
+
+        <h2>
+            Explore Home Safety
+        </h2>
+
+
+        <p>
+            Build awareness around different parts of home safety.
+        </p>
+
+    </div>
+
+
+    <div class="areas-grid">
+
+
+        <div class="area-card">
+
+            <div class="area-icon">
+                🚪
+            </div>
+
+            <h3>
+                Personal Boundaries
+            </h3>
+
+            <p>
+                Everyone has the right to communicate personal
+                boundaries and expect respectful behavior from
+                others.
+            </p>
+
+        </div>
+
+
+
+        <div class="area-card">
+
+            <div class="area-icon">
+                🔐
+            </div>
+
+            <h3>
+                Privacy
+            </h3>
+
+            <p>
+                Think about who has access to your personal
+                belongings, accounts, devices and private
+                information.
+            </p>
+
+        </div>
+
+
+
+        <div class="area-card">
+
+            <div class="area-icon">
+                📞
+            </div>
+
+            <h3>
+                Trusted Contacts
+            </h3>
+
+            <p>
+                Keep contact information for people you trust
+                accessible when you need advice, assistance
+                or emotional support.
+            </p>
+
+        </div>
+
+
+
+        <div class="area-card">
+
+            <div class="area-icon">
+                🧭
+            </div>
+
+            <h3>
+                Safety Planning
+            </h3>
+
+            <p>
+                Think ahead about where you could go and who
+                you could contact if you ever needed additional
+                support.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     SAFETY PLAN
+========================================== -->
+
+<section class="plan-section">
+
+
+    <div class="plan-container">
+
+
+        <div class="plan-text">
+
+            <h2>
+                Build a Personal Safety Plan
+            </h2>
+
+
+            <p>
+                A safety plan is not about expecting something
+                bad to happen. It is simply a way to think ahead
+                and identify useful options.
+            </p>
+
+
+            <div class="plan-point">
+
+                <div class="plan-point-icon">
+                    👥
+                </div>
+
+                <div>
+
+                    <h4>
+                        Identify Trusted People
+                    </h4>
+
+                    <p>
+                        Know who you can talk to if you need
+                        advice or support.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="plan-point">
+
+                <div class="plan-point-icon">
+                    📱
+                </div>
+
+                <div>
+
+                    <h4>
+                        Keep Important Contacts
+                    </h4>
+
+                    <p>
+                        Make sure important contact information
+                        is accessible when needed.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="plan-point">
+
+                <div class="plan-point-icon">
+                    🗺️
+                </div>
+
+                <div>
+
+                    <h4>
+                        Know Your Options
+                    </h4>
+
+                    <p>
+                        Consider safe places and appropriate
+                        sources of help available to you.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- CHECKLIST -->
+
+        <div class="home-check-card"
+             id="home-check">
+
+            <h3>
+                🏠 Home Safety Checklist
+            </h3>
+
+
+            <p>
+                Select the items you have considered.
+            </p>
+
+
+            <label class="home-check">
+
+                <input type="checkbox"
+                       class="home-checkbox">
+
+                I know at least one trusted person I can contact.
+
+            </label>
+
+
+            <label class="home-check">
+
+                <input type="checkbox"
+                       class="home-checkbox">
+
+                I know where I can seek help if necessary.
+
+            </label>
+
+
+            <label class="home-check">
+
+                <input type="checkbox"
+                       class="home-checkbox">
+
+                I understand and communicate my boundaries.
+
+            </label>
+
+
+            <label class="home-check">
+
+                <input type="checkbox"
+                       class="home-checkbox">
+
+                I know how to protect my personal privacy.
+
+            </label>
+
+
+            <label class="home-check">
+
+                <input type="checkbox"
+                       class="home-checkbox">
+
+                I have important contacts accessible.
+
+            </label>
+
+
+            <div class="home-progress">
+
+                <div class="home-progress-top">
+
+                    <span>
+                        Safety Planning
+                    </span>
+
+                    <span id="homePercent">
+                        0%
+                    </span>
+
+                </div>
+
+
+                <div class="home-progress-bar">
+
+                    <div class="home-progress-fill"
+                         id="homeProgress">
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     BOUNDARIES
+========================================== -->
+
+<section class="boundaries-section">
+
+
+    <div class="section-title">
+
+        <h2>
+            Healthy Boundaries at Home
+        </h2>
+
+
+        <p>
+            Respect and consent matter in every environment.
+        </p>
+
+    </div>
+
+
+    <div class="boundary-grid">
+
+
+        <div class="boundary-card">
+
+            <h3>
+                💬 Communication
+            </h3>
+
+            <p>
+                Healthy communication allows people to express
+                discomfort, preferences and boundaries without
+                being pressured or mocked.
+            </p>
+
+        </div>
+
+
+
+        <div class="boundary-card">
+
+            <h3>
+                🔒 Privacy
+            </h3>
+
+            <p>
+                Personal spaces, devices, accounts and belongings
+                should be treated with appropriate respect.
+            </p>
+
+        </div>
+
+
+
+        <div class="boundary-card">
+
+            <h3>
+                ✋ Saying No
+            </h3>
+
+            <p>
+                A person's boundaries deserve to be taken
+                seriously. Pressure or unwanted behavior should
+                not be treated as normal or acceptable.
+            </p>
+
+        </div>
+
+
+
+        <div class="boundary-card">
+
+            <h3>
+                🤝 Getting Support
+            </h3>
+
+            <p>
+                Speaking with a trusted person or appropriate
+                support service can help when a situation becomes
+                difficult or unsafe.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     CTA
+========================================== -->
+
+<section class="home-cta">
+
+
+    <div class="home-cta-box">
+
+        <h2>
+            You Deserve to Feel Safe.
+        </h2>
+
+
+        <p>
+            If you are dealing with harassment or another
+            difficult situation, explore the HerShield Support
+            Hub for information about possible support options.
+        </p>
+
+
+        <a href="support-hub.html"
+           class="home-cta-button">
+
+            Visit Support Hub →
+
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     FOOTER
+========================================== -->
+
+  <footer>
+
+        <div class="footer-main">
+
+            <div class="footer-about">
+
+                <a href="index.html" class="logo">
+                    <span class="logo-icon">🛡️</span>
+                    <span>Her<span>Shield</span></span>
+                </a>
+
+                <p>
+                    A digital awareness platform focused on
+                    safety, knowledge and empowerment.
+                </p>
+
+                <div class="socials">
+                    <a href="#">f</a>
+                    <a href="#">𝕏</a>
+                    <a href="#">◎</a>
+                    <a href="#">in</a>
+                </div>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <h4>Quick Links</h4>
+
+                <a href="index.html">Home</a>
+                <a href="#about">About</a>
+                <a href="#hubs">Safety Hubs</a>
+                <a href="contact.html">Contact</a>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <h4>Safety Hubs</h4>
+
+                <a href="campus-hub.html">Campus</a>
+                <a href="workplace-hub.html">Workplace</a>
+                <a href="public-space-hub.html">Public Space</a>
+                <a href="digital-safety-hub.html">Digital Safety</a>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <h4>Support</h4>
+
+                <a href="support-hub.html">Get Support</a>
+                <a href="legal-help-hub.html">Legal Help</a>
+                <a href="contact.html">Contact Us</a>
+                <a href="login.html">Login</a>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 HerShield. Built for awareness and empowerment.
+            </p>
+
+            <div>
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+            </div>
+
+        </div>
+
+    </footer>
+
+
+
+<!-- =========================================
+     MAIN JAVASCRIPT
+========================================== -->
+
+<script src="script.js"></script>
+
+
+
+<!-- =========================================
+     HOME SAFETY JAVASCRIPT
+========================================== -->
+
+<script>
+
+    const homeCheckboxes =
+        document.querySelectorAll(".home-checkbox");
+
+    const homeProgress =
+        document.getElementById("homeProgress");
+
+    const homePercent =
+        document.getElementById("homePercent");
+
+
+    function updateHomeProgress() {
+
+        let completed = 0;
+
+
+        homeCheckboxes.forEach(function(box) {
+
+            if (box.checked) {
+
+                completed++;
+
+            }
+
+        });
+
+
+        const percentage =
+            Math.round(
+                (completed / homeCheckboxes.length) * 100
+            );
+
+
+        homeProgress.style.width =
+            percentage + "%";
+
+
+        homePercent.textContent =
+            percentage + "%";
+
+    }
+
+
+    homeCheckboxes.forEach(function(box) {
+
+        box.addEventListener(
+            "change",
+            updateHomeProgress
+        );
+
+    });
+
+</script>
+
+
+</body>
+</html>
+

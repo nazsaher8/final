@@ -1,0 +1,1396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Workplace Hub | HerShield</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        /* ==========================================
+           WORKPLACE HUB
+           ========================================== */
+.navbar {
+    width: 100%;
+    height: 78px;
+    padding: 0 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(255, 255, 255, 0.96);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(12px);
+}
+
+
+/* ---------- LOGO ---------- */
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    font-size: 23px;
+    font-weight: 800;
+    color: var(--dark);
+}
+
+.logo > span:last-child > span {
+    color: var(--primary);
+}
+
+.logo-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #6256d9, #4d7cff);
+    color: white;
+    font-size: 21px;
+    box-shadow: 0 8px 20px rgba(98, 86, 217, 0.25);
+}
+
+
+/* ---------- NAVIGATION ---------- */
+
+.navbar nav {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.navbar nav > a,
+.dropdown > a {
+    color: #555577;
+    font-size: 14px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.navbar nav > a:hover,
+.dropdown > a:hover,
+.navbar nav .active {
+    color: var(--primary);
+}
+
+
+/* ---------- DROPDOWN ---------- */
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 30px;
+    left: -20px;
+    width: 210px;
+    padding: 10px;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: 0.3s;
+}
+
+.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 10px 12px;
+    border-radius: 9px;
+    color: #555577;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.dropdown-menu a:hover {
+    background: var(--lavender);
+    color: var(--primary);
+}
+
+
+/* ---------- NAV BUTTONS ---------- */
+
+.nav-buttons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.login-btn {
+    padding: 10px 19px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    color: var(--primary);
+    font-size: 13px;
+    font-weight: 700;
+    transition: 0.3s;
+}
+
+.login-btn:hover {
+    background: var(--lavender);
+}
+
+.emergency-btn {
+    padding: 11px 18px;
+    border-radius: 10px;
+    background: #fff0f3;
+    color: var(--danger);
+    font-size: 13px;
+    font-weight: 700;
+    transition: 0.3s;
+}
+
+.emergency-btn:hover {
+    background: var(--danger);
+    color: white;
+}
+
+
+/* ---------- MOBILE BUTTON ---------- */
+
+.menu-btn {
+    display: none;
+    border: none;
+    background: var(--lavender);
+    color: var(--primary);
+    font-size: 23px;
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+        .work-hero {
+            min-height: 500px;
+            padding: 80px 8%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 60px;
+
+            background:
+                radial-gradient(
+                    circle at 90% 20%,
+                    #dfe9ff 0,
+                    transparent 30%
+                ),
+                linear-gradient(
+                    135deg,
+                    #faf9ff,
+                    #edf3ff
+                );
+        }
+
+
+        .work-content {
+            max-width: 650px;
+        }
+
+
+        .work-label {
+            display: inline-block;
+            padding: 8px 15px;
+            border-radius: 30px;
+
+            background: #e8edff;
+            color: #4d68d9;
+
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+
+        .work-content h1 {
+            font-size: clamp(42px, 6vw, 65px);
+            line-height: 1.08;
+            margin: 20px 0;
+
+            color: #202044;
+        }
+
+
+        .work-content h1 span {
+            color: #4d68d9;
+        }
+
+
+        .work-content p {
+            color: #686887;
+            font-size: 16px;
+            line-height: 1.8;
+            max-width: 600px;
+        }
+
+
+        /* ==========================================
+           WORKPLACE VISUAL
+           ========================================== */
+
+        .work-visual {
+            width: 420px;
+            height: 370px;
+            position: relative;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+
+        .office-card {
+            width: 280px;
+            height: 300px;
+
+            background: white;
+            border: 1px solid #e4e1f4;
+            border-radius: 28px;
+
+            box-shadow:
+                0 25px 60px rgba(70, 75, 160, 0.15);
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            position: relative;
+            z-index: 2;
+        }
+
+
+        .office-icon {
+            width: 120px;
+            height: 120px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #6256d9,
+                    #4d7cff
+                );
+
+            border-radius: 30px;
+
+            font-size: 58px;
+
+            box-shadow:
+                0 18px 35px rgba(77, 124, 255, 0.25);
+
+            margin-bottom: 20px;
+        }
+
+
+        .office-card h3 {
+            font-size: 22px;
+            color: #202044;
+        }
+
+
+        .office-card p {
+            color: #686887;
+            font-size: 12px;
+        }
+
+
+        .office-floating {
+            position: absolute;
+
+            background: white;
+            border: 1px solid #e4e1f4;
+            border-radius: 12px;
+
+            padding: 12px 16px;
+
+            box-shadow:
+                0 12px 30px rgba(70, 75, 160, 0.12);
+
+            color: #202044;
+
+            font-size: 12px;
+            font-weight: 700;
+
+            z-index: 5;
+        }
+
+
+        .office-floating.one {
+            top: 30px;
+            left: 0;
+        }
+
+
+        .office-floating.two {
+            right: 0;
+            bottom: 35px;
+        }
+
+
+        /* ==========================================
+           WORKPLACE INTRO
+           ========================================== */
+
+        .work-intro {
+            padding: 90px 8%;
+            background: white;
+        }
+
+
+        .work-intro-inner {
+            max-width: 850px;
+            margin: auto;
+            text-align: center;
+        }
+
+
+        .work-intro h2 {
+            font-size: 37px;
+            line-height: 1.2;
+            margin: 12px 0 18px;
+        }
+
+
+        .work-intro h2 span {
+            color: #4d68d9;
+        }
+
+
+        .work-intro p {
+            color: #686887;
+            font-size: 14px;
+            line-height: 1.9;
+        }
+
+
+        /* ==========================================
+           WORKPLACE PRINCIPLES
+           ========================================== */
+
+        .principles {
+            padding: 90px 8%;
+            background: #f8f7ff;
+        }
+
+
+        .principle-grid {
+            max-width: 1150px;
+            margin: 50px auto 0;
+
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+
+            gap: 18px;
+        }
+
+
+        .principle {
+            padding: 28px 22px;
+
+            background: white;
+            border: 1px solid #e4e1f4;
+            border-radius: 18px;
+
+            transition: 0.3s;
+        }
+
+
+        .principle:hover {
+            transform: translateY(-7px);
+
+            box-shadow:
+                0 15px 40px rgba(77, 68, 170, 0.12);
+        }
+
+
+        .principle-icon {
+            font-size: 28px;
+            margin-bottom: 18px;
+        }
+
+
+        .principle h3 {
+            font-size: 17px;
+            margin-bottom: 9px;
+        }
+
+
+        .principle p {
+            color: #686887;
+            font-size: 12px;
+            line-height: 1.7;
+        }
+
+
+        /* ==========================================
+           SITUATIONS
+           ========================================== */
+
+        .situations {
+            padding: 90px 8%;
+            background: white;
+        }
+
+
+        .situation-container {
+            max-width: 1050px;
+            margin: 50px auto 0;
+
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+
+            gap: 25px;
+        }
+
+
+        .situation-card {
+            padding: 35px;
+
+            border-radius: 22px;
+            border: 1px solid #e4e1f4;
+
+            transition: 0.3s;
+        }
+
+
+        .situation-card:hover {
+            transform: translateY(-5px);
+        }
+
+
+        .situation-card h3 {
+            font-size: 20px;
+            margin-bottom: 12px;
+        }
+
+
+        .situation-card p {
+            color: #686887;
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+
+        .situation-card ul {
+            margin-top: 18px;
+            padding-left: 18px;
+        }
+
+
+        .situation-card li {
+            color: #686887;
+            font-size: 12px;
+            margin: 9px 0;
+        }
+
+
+        .professional {
+            background: #f1f6ff;
+        }
+
+
+        .concerning {
+            background: #fff5f7;
+        }
+
+
+        /* ==========================================
+           WORKPLACE CHECKLIST
+           ========================================== */
+
+        .check-section {
+            padding: 90px 8%;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #eeecff,
+                    #eaf2ff
+                );
+        }
+
+
+        .check-box {
+            max-width: 850px;
+            margin: auto;
+
+            padding: 40px;
+
+            background: white;
+
+            border-radius: 25px;
+
+            box-shadow:
+                0 20px 50px rgba(77, 68, 170, 0.1);
+        }
+
+
+        .check-box h2 {
+            text-align: center;
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+
+
+        .check-box > p {
+            text-align: center;
+            color: #686887;
+            font-size: 13px;
+            margin-bottom: 30px;
+        }
+
+
+        .check-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+
+            padding: 15px;
+
+            margin-bottom: 10px;
+
+            background: #faf9ff;
+
+            border: 1px solid #eeeaf8;
+            border-radius: 12px;
+
+            color: #555577;
+
+            font-size: 13px;
+        }
+
+
+        .check-item input {
+            width: 18px;
+            height: 18px;
+            accent-color: #6256d9;
+            cursor: pointer;
+        }
+
+
+        .progress-container {
+            margin-top: 25px;
+        }
+
+
+        .progress-text {
+            display: flex;
+            justify-content: space-between;
+
+            color: #686887;
+            font-size: 11px;
+
+            margin-bottom: 7px;
+        }
+
+
+        .progress-bar {
+            height: 8px;
+
+            background: #e8e6f3;
+
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+
+        .progress {
+            width: 0%;
+            height: 100%;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #6256d9,
+                    #4d7cff
+                );
+
+            border-radius: 20px;
+
+            transition: 0.4s;
+        }
+
+
+        /* ==========================================
+           SUPPORT CTA
+           ========================================== */
+
+        .work-cta {
+            padding: 90px 8%;
+            background: white;
+            text-align: center;
+        }
+
+
+        .work-cta h2 {
+            font-size: 34px;
+            margin: 10px 0 15px;
+        }
+
+
+        .work-cta p {
+            max-width: 650px;
+            margin: auto auto 25px;
+
+            color: #686887;
+            font-size: 14px;
+        }
+
+
+        /* ==========================================
+           RESPONSIVE
+           ========================================== */
+
+        @media (max-width: 950px) {
+
+            .principle-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .work-hero {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .work-content p {
+                margin: auto;
+            }
+
+        }
+
+
+        @media (max-width: 650px) {
+
+            .work-hero {
+                padding: 60px 5%;
+            }
+
+            .work-visual {
+                width: 100%;
+            }
+
+            .principle-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .situation-container {
+                grid-template-columns: 1fr;
+            }
+
+            .check-box {
+                padding: 25px 18px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     NAVBAR
+     ===================================================== -->
+
+ <header class="navbar">
+
+        <a href="index.html" class="logo">
+            <span class="logo-icon">🛡️</span>
+            <span>Her<span>Shield</span></span>
+        </a>
+
+        <nav id="navMenu">
+
+            <a href="index.html" class="active">Home</a>
+
+            <div class="dropdown">
+                <a href="#hubs">Hubs ▾</a>
+
+                <div class="dropdown-menu">
+                    <a href="campus-hub.html">Campus Hub</a>
+                    <a href="workplace-hub.html">Workplace Hub</a>
+                    <a href="public-space-hub.html">Public Space Hub</a>
+                    <a href="digital-safety-hub.html">Digital Safety Hub</a>
+                    <a href="home-safety-hub.html">Home Safety Hub</a>
+                    <a href="support-hub.html">Support Hub</a>
+                    <a href="legal-help-hub.html">Legal Help Hub</a>
+                </div>
+            </div>
+
+            <a href="About.html">About</a>
+            <a href="contact.html">Contact</a>
+
+        </nav>
+
+        <div class="nav-buttons">
+            <a href="login.html" class="login-btn">Login</a>
+            <a href="emergancy.html" class="emergency-btn">Emergency</a>
+        </div>
+
+        <button class="menu-btn" id="menuBtn">☰</button>
+
+    </header>
+
+
+
+<!-- =====================================================
+     HERO
+     ===================================================== -->
+
+<section class="work-hero">
+
+
+    <div class="work-content">
+
+        <span class="work-label">
+            HERSHIELD • HUB 02
+        </span>
+
+
+        <h1>
+
+            The Workplace
+            <span>Hub</span>
+
+        </h1>
+
+
+        <p>
+
+            Every person deserves to work in an environment
+            where professional boundaries and respectful
+            behavior are understood. Explore workplace
+            awareness, boundaries and support options.
+
+        </p>
+
+
+        <br>
+
+
+        <a href="#principles" class="primary-btn">
+
+            Explore Workplace Safety →
+
+        </a>
+
+    </div>
+
+
+
+    <div class="work-visual">
+
+
+        <div class="office-floating one">
+            💼 Professional Environment
+        </div>
+
+
+        <div class="office-card">
+
+            <div class="office-icon">
+                💼
+            </div>
+
+            <h3>
+                Safe Workplace
+            </h3>
+
+            <p>
+                Respect • Boundaries • Support
+            </p>
+
+        </div>
+
+
+        <div class="office-floating two">
+            🛡️ Know Your Options
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     INTRO
+     ===================================================== -->
+
+<section class="work-intro">
+
+    <div class="work-intro-inner">
+
+        <span class="small-title">
+            WORKPLACE AWARENESS
+        </span>
+
+
+        <h2>
+
+            A respectful workplace
+            starts with <span>awareness.</span>
+
+        </h2>
+
+
+        <p>
+
+            Professional environments involve people with
+            different roles, responsibilities and levels of
+            authority. Understanding appropriate boundaries
+            can help create a respectful workplace and help
+            people recognize when behavior may need to be
+            addressed through appropriate channels.
+
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PRINCIPLES
+     ===================================================== -->
+
+<section class="principles" id="principles">
+
+
+    <div class="section-heading">
+
+        <span>
+            PROFESSIONAL PRINCIPLES
+        </span>
+
+
+        <h2>
+            Four foundations of workplace safety.
+        </h2>
+
+
+        <p>
+            Awareness can help people understand
+            healthy professional environments.
+        </p>
+
+    </div>
+
+
+
+    <div class="principle-grid">
+
+
+        <div class="principle">
+
+            <div class="principle-icon">
+                🤝
+            </div>
+
+            <h3>
+                Respect
+            </h3>
+
+            <p>
+                Professional communication should
+                maintain dignity and respect.
+            </p>
+
+        </div>
+
+
+
+        <div class="principle">
+
+            <div class="principle-icon">
+                🚧
+            </div>
+
+            <h3>
+                Boundaries
+            </h3>
+
+            <p>
+                Clear personal and professional
+                boundaries are important at work.
+            </p>
+
+        </div>
+
+
+
+        <div class="principle">
+
+            <div class="principle-icon">
+                ⚖️
+            </div>
+
+            <h3>
+                Fairness
+            </h3>
+
+            <p>
+                Workplace concerns should be handled
+                through appropriate processes.
+            </p>
+
+        </div>
+
+
+
+        <div class="principle">
+
+            <div class="principle-icon">
+                🛡️
+            </div>
+
+            <h3>
+                Support
+            </h3>
+
+            <p>
+                Employees should know where appropriate
+                support and reporting channels exist.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     SITUATIONS
+     ===================================================== -->
+
+<section class="situations">
+
+
+    <div class="section-heading">
+
+        <span>
+            UNDERSTANDING BEHAVIOR
+        </span>
+
+
+        <h2>
+            What should you recognize?
+        </h2>
+
+    </div>
+
+
+
+    <div class="situation-container">
+
+
+        <div class="situation-card professional">
+
+            <h3>
+                🟢 Professional Environment
+            </h3>
+
+
+            <p>
+                Examples of respectful workplace practices
+                can include:
+            </p>
+
+
+            <ul>
+
+                <li>
+                    Respectful communication
+                </li>
+
+                <li>
+                    Appropriate professional boundaries
+                </li>
+
+                <li>
+                    Clear workplace expectations
+                </li>
+
+                <li>
+                    Professional treatment of colleagues
+                </li>
+
+                <li>
+                    Accessible workplace policies
+                </li>
+
+            </ul>
+
+        </div>
+
+
+
+        <div class="situation-card concerning">
+
+            <h3>
+                🟠 Concerning Behavior
+            </h3>
+
+
+            <p>
+                Situations that may warrant attention can
+                include:
+            </p>
+
+
+            <ul>
+
+                <li>
+                    Repeated unwanted communication
+                </li>
+
+                <li>
+                    Unwanted physical contact
+                </li>
+
+                <li>
+                    Threatening or intimidating behavior
+                </li>
+
+                <li>
+                    Repeatedly ignoring boundaries
+                </li>
+
+                <li>
+                    Inappropriate use of authority
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     WORKPLACE CHECKLIST
+     ===================================================== -->
+
+<section class="check-section">
+
+
+    <div class="check-box">
+
+        <span class="small-title">
+            SELF-AWARENESS CHECK
+        </span>
+
+
+        <h2>
+            Workplace Safety Checklist
+        </h2>
+
+
+        <p>
+            Check the statements you understand.
+        </p>
+
+
+        <label class="check-item">
+
+            <input
+                type="checkbox"
+                class="work-check"
+            >
+
+            I understand the importance of professional boundaries.
+
+        </label>
+
+
+        <label class="check-item">
+
+            <input
+                type="checkbox"
+                class="work-check"
+            >
+
+            I know that unwanted behavior can be documented.
+
+        </label>
+
+
+        <label class="check-item">
+
+            <input
+                type="checkbox"
+                class="work-check"
+            >
+
+            I know where workplace policies can be found.
+
+        </label>
+
+
+        <label class="check-item">
+
+            <input
+                type="checkbox"
+                class="work-check"
+            >
+
+            I understand that support may be available through appropriate channels.
+
+        </label>
+
+
+        <label class="check-item">
+
+            <input
+                type="checkbox"
+                class="work-check"
+            >
+
+            I know who I can approach if I need guidance.
+
+        </label>
+
+
+
+        <div class="progress-container">
+
+            <div class="progress-text">
+
+                <span>
+                    Your progress
+                </span>
+
+                <span id="progressPercent">
+                    0%
+                </span>
+
+            </div>
+
+
+            <div class="progress-bar">
+
+                <div
+                    class="progress"
+                    id="progressBar">
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CTA
+     ===================================================== -->
+
+<section class="work-cta">
+
+    <span class="small-title">
+        NEED MORE INFORMATION?
+    </span>
+
+
+    <h2>
+        Knowing your options matters.
+    </h2>
+
+
+    <p>
+
+        Explore the Support Hub for general guidance
+        and the Legal Help Hub for information about
+        possible reporting and assistance channels.
+
+    </p>
+
+
+    <a
+        href="support-hub.html"
+        class="primary-btn">
+
+        Explore Support →
+
+    </a>
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+     ===================================================== -->
+
+<  <footer>
+
+        <div class="footer-main">
+
+            <div class="footer-about">
+
+                <a href="index.html" class="logo">
+                    <span class="logo-icon">🛡️</span>
+                    <span>Her<span>Shield</span></span>
+                </a>
+
+                <p>
+                    A digital awareness platform focused on
+                    safety, knowledge and empowerment.
+                </p>
+
+                <div class="socials">
+                    <a href="#">f</a>
+                    <a href="#">𝕏</a>
+                    <a href="#">◎</a>
+                    <a href="#">in</a>
+                </div>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <h4>Quick Links</h4>
+
+                <a href="index.html">Home</a>
+                <a href="#about">About</a>
+                <a href="#hubs">Safety Hubs</a>
+                <a href="contact.html">Contact</a>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <h4>Safety Hubs</h4>
+
+                <a href="campus-hub.html">Campus</a>
+                <a href="workplace-hub.html">Workplace</a>
+                <a href="public-space-hub.html">Public Space</a>
+                <a href="digital-safety-hub.html">Digital Safety</a>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <h4>Support</h4>
+
+                <a href="support-hub.html">Get Support</a>
+                <a href="legal-help-hub.html">Legal Help</a>
+                <a href="contact.html">Contact Us</a>
+                <a href="login.html">Login</a>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 HerShield. Built for awareness and empowerment.
+            </p>
+
+            <div>
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+            </div>
+
+        </div>
+
+    </footer>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+     ===================================================== -->
+
+<script src="js/script.js"></script>
+
+
+<script>
+
+    /* ==========================================
+       WORKPLACE CHECKLIST
+       ========================================== */
+
+    const workChecks =
+        document.querySelectorAll(".work-check");
+
+    const progressBar =
+        document.getElementById("progressBar");
+
+    const progressPercent =
+        document.getElementById("progressPercent");
+
+
+    workChecks.forEach(function(check) {
+
+        check.addEventListener("change", function() {
+
+            let completed = 0;
+
+            workChecks.forEach(function(item) {
+
+                if (item.checked) {
+                    completed++;
+                }
+
+            });
+
+
+            let percentage =
+                (completed / workChecks.length) * 100;
+
+
+            progressBar.style.width =
+                percentage + "%";
+
+
+            progressPercent.textContent =
+                Math.round(percentage) + "%";
+
+        });
+
+    });
+
+</script>
+
+
+</body>
+</html>
+

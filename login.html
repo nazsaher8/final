@@ -1,0 +1,780 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login | HerShield</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* =========================
+           LOGIN PAGE
+        ========================= */
+
+        .login-page {
+            min-height: calc(100vh - 80px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 20px;
+            background: linear-gradient(
+                135deg,
+                #f8f5ff,
+                #eef7ff,
+                #f5f2ff
+            );
+        }
+
+        .login-container {
+            width: 100%;
+            max-width: 1000px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            background: white;
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: 0 25px 70px rgba(55, 70, 125, 0.15);
+        }
+
+        /* LEFT SIDE */
+
+        .login-info {
+            padding: 55px 45px;
+            background: linear-gradient(
+                145deg,
+                #7564c9,
+                #4387d8
+            );
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .login-info::before {
+            content: "";
+            position: absolute;
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.08);
+            top: -80px;
+            right: -70px;
+        }
+
+        .login-info::after {
+            content: "";
+            position: absolute;
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.07);
+            bottom: -70px;
+            left: -50px;
+        }
+
+        .shield-large {
+            width: 95px;
+            height: 110px;
+            margin-bottom: 30px;
+            background: rgba(255, 255, 255, 0.16);
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            border-radius: 50px 50px 55px 55px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 45px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .login-info h1 {
+            font-size: 42px;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .login-info h1 span {
+            color: #e8e2ff;
+        }
+
+        .login-info > p {
+            line-height: 1.8;
+            font-size: 16px;
+            color: #f0efff;
+            position: relative;
+            z-index: 1;
+        }
+
+        .login-features {
+            margin-top: 35px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .login-feature {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin: 18px 0;
+            font-size: 15px;
+        }
+
+        .feature-check {
+            width: 27px;
+            height: 27px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.18);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* RIGHT SIDE */
+
+        .login-form-area {
+            padding: 55px 45px;
+        }
+
+        .login-heading {
+            margin-bottom: 30px;
+        }
+
+        .login-heading h2 {
+            font-size: 32px;
+            color: #243b72;
+            margin-bottom: 8px;
+        }
+
+        .login-heading p {
+            color: #737d94;
+            line-height: 1.6;
+        }
+
+        .form-group {
+            margin-bottom: 22px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #34446d;
+            font-weight: 600;
+        }
+
+        .input-wrapper {
+            position: relative;
+        }
+
+        .input-wrapper input {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 14px 45px 14px 16px;
+            border: 1px solid #d9ddec;
+            border-radius: 12px;
+            font-size: 15px;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        .input-wrapper input:focus {
+            border-color: #7564c9;
+            box-shadow: 0 0 0 3px rgba(117, 100, 201, 0.10);
+        }
+
+        .input-icon {
+            position: absolute;
+            right: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #7b86a0;
+        }
+
+        .password-toggle {
+            position: absolute;
+            right: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            font-size: 17px;
+            color: #68728a;
+        }
+
+        .login-options {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 25px;
+            font-size: 14px;
+        }
+
+        .remember {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            color: #626d85;
+        }
+
+        .remember input {
+            accent-color: #7564c9;
+        }
+
+        .forgot {
+            color: #7564c9;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .forgot:hover {
+            text-decoration: underline;
+        }
+
+        .login-button {
+            width: 100%;
+            border: none;
+            padding: 15px;
+            border-radius: 13px;
+            background: linear-gradient(
+                135deg,
+                #7564c9,
+                #4387d8
+            );
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .login-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(67, 135, 216, 0.25);
+        }
+
+        .login-message {
+            display: none;
+            margin-top: 20px;
+            padding: 14px;
+            background: #f0f7ff;
+            border-left: 4px solid #4387d8;
+            border-radius: 8px;
+            color: #4f607d;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .create-account {
+            text-align: center;
+            margin-top: 25px;
+            color: #737d94;
+            font-size: 14px;
+        }
+
+        .create-account a {
+            color: #7564c9;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .security-note {
+            margin-top: 25px;
+            padding: 15px;
+            border-radius: 10px;
+            background: #faf9ff;
+            color: #777f93;
+            font-size: 12px;
+            line-height: 1.6;
+            text-align: center;
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 800px) {
+
+            .login-container {
+                grid-template-columns: 1fr;
+            }
+
+            .login-info {
+                padding: 40px 30px;
+            }
+
+            .login-form-area {
+                padding: 40px 30px;
+            }
+
+            .login-info h1 {
+                font-size: 34px;
+            }
+        }
+
+        @media (max-width: 500px) {
+
+            .login-page {
+                padding: 30px 15px;
+            }
+
+            .login-options {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================
+         NAVIGATION
+    ========================== -->
+<header class="navbar">
+
+        <a href="index.html" class="logo">
+            <span class="logo-icon">🛡️</span>
+            <span>Her<span>Shield</span></span>
+        </a>
+
+        <nav id="navMenu">
+
+            <a href="index.html" class="active">Home</a>
+
+            <div class="dropdown">
+                <a href="#hubs">Hubs ▾</a>
+
+                <div class="dropdown-menu">
+                    <a href="campus-hub.html">Campus Hub</a>
+                    <a href="workplace-hub.html">Workplace Hub</a>
+                    <a href="public-space-hub.html">Public Space Hub</a>
+                    <a href="digital-safety-hub.html">Digital Safety Hub</a>
+                    <a href="home-safety-hub.html">Home Safety Hub</a>
+                    <a href="support-hub.html">Support Hub</a>
+                    <a href="legal-help-hub.html">Legal Help Hub</a>
+                </div>
+            </div>
+
+            <a href="About.html">About</a>
+            <a href="contact.html">Contact</a>
+
+        </nav>
+
+        <div class="nav-buttons">
+            <a href="login.html" class="login-btn">Login</a>
+            <a href="emergancy.html" class="emergency-btn">Emergency</a>
+        </div>
+
+        <button class="menu-btn" id="menuBtn">☰</button>
+
+    </header> </nav>
+
+
+    <!-- =========================
+         LOGIN
+    ========================== -->
+
+    <main class="login-page">
+
+        <div class="login-container">
+
+
+            <!-- LEFT INFORMATION -->
+
+            <section class="login-info">
+
+                <div class="shield-large">
+                    🛡️
+                </div>
+
+                <h1>
+                    Welcome to
+                    <span>HerShield</span>
+                </h1>
+
+                <p>
+                    Sign in to access your HerShield experience
+                    and explore safety resources in one place.
+                </p>
+
+
+                <div class="login-features">
+
+                    <div class="login-feature">
+
+                        <span class="feature-check">
+                            ✓
+                        </span>
+
+                        <span>
+                            Access your safety resources
+                        </span>
+
+                    </div>
+
+
+                    <div class="login-feature">
+
+                        <span class="feature-check">
+                            ✓
+                        </span>
+
+                        <span>
+                            Explore personalized safety tools
+                        </span>
+
+                    </div>
+
+
+                    <div class="login-feature">
+
+                        <span class="feature-check">
+                            ✓
+                        </span>
+
+                        <span>
+                            Connect with available support information
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- LOGIN FORM -->
+
+            <section class="login-form-area">
+
+                <div class="login-heading">
+
+                    <h2>Sign In</h2>
+
+                    <p>
+                        Enter your account details to continue.
+                    </p>
+
+                </div>
+
+
+                <form id="loginForm">
+
+
+                    <!-- EMAIL -->
+
+                    <div class="form-group">
+
+                        <label for="email">
+                            Email Address
+                        </label>
+
+                        <div class="input-wrapper">
+
+                            <input
+                                type="email"
+                                id="email"
+                                placeholder="Enter your email"
+                                required
+                            >
+
+                            <span class="input-icon">
+                                ✉
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- PASSWORD -->
+
+                    <div class="form-group">
+
+                        <label for="password">
+                            Password
+                        </label>
+
+                        <div class="input-wrapper">
+
+                            <input
+                                type="password"
+                                id="password"
+                                placeholder="Enter your password"
+                                required
+                            >
+
+                            <button
+                                type="button"
+                                class="password-toggle"
+                                id="togglePassword"
+                            >
+                                👁
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- OPTIONS -->
+
+                    <div class="login-options">
+
+                        <label class="remember">
+
+                            <input
+                                type="checkbox"
+                                id="remember"
+                            >
+
+                            Remember me
+
+                        </label>
+
+
+                        <a href="#" class="forgot">
+                            Forgot password?
+                        </a>
+
+                    </div>
+
+
+                    <!-- LOGIN BUTTON -->
+
+                    <button
+                        type="submit"
+                        class="login-button"
+                    >
+                        Sign In →
+                    </button>
+
+
+                    <!-- MESSAGE -->
+
+                    <div
+                        class="login-message"
+                        id="loginMessage"
+                    ></div>
+
+                </form>
+
+
+                <div class="create-account">
+
+                    Don't have an account?
+
+                    <a href="#">
+                        Create Account
+                    </a>
+
+                </div>
+
+
+                <div class="security-note">
+
+                    🔒 For this school project, this login is a
+                    frontend demonstration. Real authentication
+                    requires a secure backend and database.
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+
+    
+
+<  <footer>
+
+        <div class="footer-main">
+
+            <div class="footer-about">
+
+                <a href="index.html" class="logo">
+                    <span class="logo-icon">🛡️</span>
+                    <span>Her<span>Shield</span></span>
+                </a>
+
+                <p>
+                    A digital awareness platform focused on
+                    safety, knowledge and empowerment.
+                </p>
+
+                <div class="socials">
+                    <a href="#">f</a>
+                    <a href="#">𝕏</a>
+                    <a href="#">◎</a>
+                    <a href="#">in</a>
+                </div>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <h4>Quick Links</h4>
+
+                <a href="index.html">Home</a>
+                <a href="#about">About</a>
+                <a href="#hubs">Safety Hubs</a>
+                <a href="contact.html">Contact</a>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <h4>Safety Hubs</h4>
+
+                <a href="campus-hub.html">Campus</a>
+                <a href="workplace-hub.html">Workplace</a>
+                <a href="public-space-hub.html">Public Space</a>
+                <a href="digital-safety-hub.html">Digital Safety</a>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <h4>Support</h4>
+
+                <a href="support-hub.html">Get Support</a>
+                <a href="legal-help-hub.html">Legal Help</a>
+                <a href="contact.html">Contact Us</a>
+                <a href="login.html">Login</a>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 HerShield. Built for awareness and empowerment.
+            </p>
+
+            <div>
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+            </div>
+
+        </div>
+
+   
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script>
+
+        /* PASSWORD SHOW / HIDE */
+
+        const password =
+            document.getElementById("password");
+
+        const togglePassword =
+            document.getElementById("togglePassword");
+
+
+        togglePassword.addEventListener(
+            "click",
+            function() {
+
+                if (password.type === "password") {
+
+                    password.type = "text";
+                    togglePassword.textContent = "🙈";
+
+                } else {
+
+                    password.type = "password";
+                    togglePassword.textContent = "👁";
+
+                }
+
+            }
+        );
+
+
+        /* DEMO LOGIN */
+
+        const loginForm =
+            document.getElementById("loginForm");
+
+        const loginMessage =
+            document.getElementById("loginMessage");
+
+
+        loginForm.addEventListener(
+            "submit",
+            function(event) {
+
+                event.preventDefault();
+
+                const email =
+                    document.getElementById("email").value;
+
+
+                loginMessage.style.display = "block";
+
+                loginMessage.innerHTML =
+                    "Welcome to HerShield! " +
+                    "This is a frontend login demonstration. " +
+                    "To create real user accounts and authentication, " +
+                    "a secure backend would need to be connected.";
+
+            }
+        );
+
+
+        /* FORGOT PASSWORD */
+
+        document
+            .querySelector(".forgot")
+            .addEventListener(
+                "click",
+                function(event) {
+
+                    event.preventDefault();
+
+                    alert(
+                        "Password recovery will be available " +
+                        "after a secure backend is connected."
+                    );
+
+                }
+            );
+
+
+        /* CREATE ACCOUNT */
+
+        document
+            .querySelector(".create-account a")
+            .addEventListener(
+                "click",
+                function(event) {
+
+                    event.preventDefault();
+
+                    alert(
+                        "Account creation can be connected " +
+                        "when the backend is added."
+                    );
+
+                }
+            );
+
+    </script>
+
+</body>
+</html>
+

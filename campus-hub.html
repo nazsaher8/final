@@ -1,0 +1,800 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Campus Hub | HerShield</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        /* ================= CAMPUS PAGE ================= */
+
+        .hub-hero {
+            min-height: 480px;
+            padding: 80px 8%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+            background:
+                radial-gradient(circle at 90% 30%, #e2e8ff 0, transparent 32%),
+                linear-gradient(135deg, #faf9ff, #f0efff);
+        }
+
+        .hub-hero-content {
+            max-width: 650px;
+        }
+
+        .hub-label {
+            display: inline-block;
+            padding: 8px 14px;
+            border-radius: 30px;
+            background: #e9e6ff;
+            color: #6256d9;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .hub-hero h1 {
+            font-size: clamp(42px, 6vw, 65px);
+            line-height: 1.08;
+            margin: 20px 0;
+            color: #202044;
+        }
+
+        .hub-hero h1 span {
+            color: #6256d9;
+        }
+
+        .hub-hero p {
+            color: #686887;
+            font-size: 16px;
+            max-width: 600px;
+            line-height: 1.8;
+        }
+
+        .hub-hero-visual {
+            width: 400px;
+            height: 350px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .campus-illustration {
+            width: 250px;
+            height: 250px;
+            border-radius: 40px;
+            background: white;
+            border: 1px solid #e4e1f4;
+            box-shadow: 0 25px 60px rgba(77, 68, 170, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 100px;
+        }
+
+        .campus-floating {
+            position: absolute;
+            padding: 13px 17px;
+            background: white;
+            border-radius: 13px;
+            border: 1px solid #e4e1f4;
+            box-shadow: 0 12px 30px rgba(77, 68, 170, 0.12);
+            font-size: 12px;
+            font-weight: 700;
+            color: #202044;
+        }
+
+        .campus-floating.one {
+            top: 35px;
+            left: 0;
+        }
+
+        .campus-floating.two {
+            right: 0;
+            bottom: 45px;
+        }
+
+
+        /* ================= INTRO ================= */
+
+        .campus-intro {
+            padding: 90px 8%;
+            background: white;
+        }
+
+        .campus-intro-inner {
+            max-width: 1100px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .campus-intro h2 {
+            font-size: 36px;
+            margin: 12px 0 18px;
+        }
+
+        .campus-intro h2 span {
+            color: #6256d9;
+        }
+
+        .campus-intro p {
+            max-width: 750px;
+            margin: auto;
+            color: #686887;
+            font-size: 14px;
+            line-height: 1.9;
+        }
+
+
+        /* ================= CAMPUS TOPICS ================= */
+
+        .campus-topics {
+            padding: 90px 8%;
+            background: #f8f7ff;
+        }
+
+        .topic-grid {
+            max-width: 1100px;
+            margin: 50px auto 0;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .topic-card {
+            padding: 28px;
+            background: white;
+            border: 1px solid #e4e1f4;
+            border-radius: 20px;
+            transition: 0.3s;
+        }
+
+        .topic-card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 15px 40px rgba(77, 68, 170, 0.12);
+        }
+
+        .topic-icon {
+            width: 55px;
+            height: 55px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 15px;
+            background: #eeeaff;
+            font-size: 25px;
+            margin-bottom: 20px;
+        }
+
+        .topic-card h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .topic-card p {
+            color: #686887;
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
+
+        /* ================= AWARENESS ================= */
+
+        .awareness-section {
+            padding: 90px 8%;
+            background: white;
+        }
+
+        .awareness-box {
+            max-width: 1100px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .awareness-card {
+            padding: 35px;
+            border-radius: 22px;
+            border: 1px solid #e4e1f4;
+        }
+
+        .awareness-card.safe {
+            background: #f1f7ff;
+        }
+
+        .awareness-card.warning {
+            background: #fff5f7;
+        }
+
+        .awareness-card h3 {
+            font-size: 21px;
+            margin-bottom: 18px;
+        }
+
+        .awareness-card ul {
+            list-style: none;
+        }
+
+        .awareness-card li {
+            margin: 13px 0;
+            color: #686887;
+            font-size: 13px;
+        }
+
+        .awareness-card li::before {
+            content: "✓";
+            color: #6256d9;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+
+        /* ================= REPORT ================= */
+
+        .campus-report {
+            padding: 90px 8%;
+            background: linear-gradient(135deg, #f0eeff, #edf4ff);
+        }
+
+        .report-box {
+            max-width: 900px;
+            margin: auto;
+            padding: 45px;
+            background: white;
+            border-radius: 25px;
+            box-shadow: 0 20px 50px rgba(77, 68, 170, 0.1);
+            text-align: center;
+        }
+
+        .report-box h2 {
+            font-size: 31px;
+            margin-bottom: 12px;
+        }
+
+        .report-box p {
+            max-width: 650px;
+            margin: auto auto 25px;
+            color: #686887;
+            font-size: 14px;
+        }
+
+        .report-options {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .report-option {
+            padding: 12px 18px;
+            border-radius: 10px;
+            border: 1px solid #e4e1f4;
+            background: #faf9ff;
+            color: #6256d9;
+            font-size: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .report-option:hover {
+            background: #6256d9;
+            color: white;
+        }
+
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 850px) {
+
+            .hub-hero {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hub-hero p {
+                margin: auto;
+            }
+
+            .topic-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .awareness-box {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+        @media (max-width: 600px) {
+
+            .hub-hero {
+                padding: 60px 5%;
+            }
+
+            .hub-hero-visual {
+                width: 100%;
+            }
+
+            .topic-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .report-box {
+                padding: 30px 20px;
+            }
+
+        }
+
+    </style>
+</head>
+
+<body>
+
+
+<!-- ================= NAVBAR ================= -->
+
+ <header class="navbar">
+
+        <a href="index.html" class="logo">
+            <span class="logo-icon">🛡️</span>
+            <span>Her<span>Shield</span></span>
+        </a>
+
+        <nav id="navMenu">
+
+            <a href="index.html" class="active">Home</a>
+
+            <div class="dropdown">
+                <a href="#hubs">Hubs ▾</a>
+
+                <div class="dropdown-menu">
+                    <a href="campus-hub.html">Campus Hub</a>
+                    <a href="workplace-hub.html">Workplace Hub</a>
+                    <a href="public-space-hub.html">Public Space Hub</a>
+                    <a href="digital-safety-hub.html">Digital Safety Hub</a>
+                    <a href="home-safety-hub.html">Home Safety Hub</a>
+                    <a href="support-hub.html">Support Hub</a>
+                    <a href="legal-help-hub.html">Legal Help Hub</a>
+                </div>
+            </div>
+
+            <a href="About.html">About</a>
+            <a href="contact.html">Contact</a>
+
+        </nav>
+
+        <div class="nav-buttons">
+            <a href="login.html" class="login-btn">Login</a>
+            <a href="#emergency" class="emergency-btn">Emergency</a>
+        </div>
+
+        <button class="menu-btn" id="menuBtn">☰</button>
+
+    </header>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hub-hero">
+
+    <div class="hub-hero-content">
+
+        <span class="hub-label">
+            HERSHIELD • HUB 01
+        </span>
+
+        <h1>
+            The Campus
+            <span>Hub</span>
+        </h1>
+
+        <p>
+            Creating awareness about safety and harassment in
+            schools, colleges and universities. Learn how to
+            recognize inappropriate behavior, understand
+            boundaries and find appropriate support.
+        </p>
+
+        <br>
+
+        <a href="#campus-topics" class="primary-btn">
+            Explore Campus Safety →
+        </a>
+
+    </div>
+
+
+    <div class="hub-hero-visual">
+
+        <div class="campus-floating one">
+            🏫 Safe Campus
+        </div>
+
+        <div class="campus-illustration">
+            🏫
+        </div>
+
+        <div class="campus-floating two">
+            🛡️ Know Your Options
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= INTRO ================= -->
+
+<section class="campus-intro">
+
+    <div class="campus-intro-inner">
+
+        <span class="small-title">
+            CAMPUS AWARENESS
+        </span>
+
+        <h2>
+            Every student deserves
+            <span>a safe learning environment.</span>
+        </h2>
+
+        <p>
+            Schools and colleges should provide environments where
+            students can learn without fear or unwanted behavior.
+            HerShield provides educational information to help
+            students recognize concerning situations and understand
+            where they may seek help.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ================= TOPICS ================= -->
+
+<section class="campus-topics" id="campus-topics">
+
+    <div class="section-heading">
+
+        <span>CAMPUS SAFETY AREAS</span>
+
+        <h2>
+            Know what to look for.
+        </h2>
+
+        <p>
+            Understanding different situations can help you
+            make informed decisions about seeking support.
+        </p>
+
+    </div>
+
+
+    <div class="topic-grid">
+
+
+        <div class="topic-card">
+
+            <div class="topic-icon">
+                🚫
+            </div>
+
+            <h3>Personal Boundaries</h3>
+
+            <p>
+                Learn about personal space, consent and
+                respectful behavior in educational environments.
+            </p>
+
+        </div>
+
+
+        <div class="topic-card">
+
+            <div class="topic-icon">
+                💬
+            </div>
+
+            <h3>Verbal Harassment</h3>
+
+            <p>
+                Understand examples of unwanted comments,
+                inappropriate language and repeated remarks.
+            </p>
+
+        </div>
+
+
+        <div class="topic-card">
+
+            <div class="topic-icon">
+                📱
+            </div>
+
+            <h3>Online Harassment</h3>
+
+            <p>
+                Learn about inappropriate messages, cyberbullying
+                and harmful digital communication.
+            </p>
+
+        </div>
+
+
+        <div class="topic-card">
+
+            <div class="topic-icon">
+                👥
+            </div>
+
+            <h3>Peer Pressure</h3>
+
+            <p>
+                Understand how pressure from classmates or
+                groups can affect personal boundaries.
+            </p>
+
+        </div>
+
+
+        <div class="topic-card">
+
+            <div class="topic-icon">
+                🧑‍🏫
+            </div>
+
+            <h3>Authority Boundaries</h3>
+
+            <p>
+                Learn why respectful professional boundaries
+                matter between students and staff.
+            </p>
+
+        </div>
+
+
+        <div class="topic-card">
+
+            <div class="topic-icon">
+                🤝
+            </div>
+
+            <h3>Finding Support</h3>
+
+            <p>
+                Learn how trusted adults, school authorities
+                and appropriate support channels may help.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= AWARENESS ================= -->
+
+<section class="awareness-section">
+
+    <div class="section-heading">
+
+        <span>SAFETY AWARENESS</span>
+
+        <h2>
+            Recognize concerning situations.
+        </h2>
+
+    </div>
+
+
+    <div class="awareness-box">
+
+
+        <div class="awareness-card safe">
+
+            <h3>🛡️ Healthy Boundaries</h3>
+
+            <ul>
+
+                <li>Respect for personal space</li>
+
+                <li>Communication without intimidation</li>
+
+                <li>Freedom to say no</li>
+
+                <li>Respectful interactions</li>
+
+                <li>Appropriate professional behavior</li>
+
+            </ul>
+
+        </div>
+
+
+        <div class="awareness-card warning">
+
+            <h3>⚠️ Concerning Behavior</h3>
+
+            <ul>
+
+                <li>Repeated unwanted communication</li>
+
+                <li>Threatening or intimidating behavior</li>
+
+                <li>Unwanted physical contact</li>
+
+                <li>Pressure to keep inappropriate behavior secret</li>
+
+                <li>Repeatedly ignoring clearly expressed boundaries</li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= REPORT ================= -->
+
+<section class="campus-report">
+
+    <div class="report-box">
+
+        <span class="small-title">
+            NEED SUPPORT?
+        </span>
+
+        <h2>
+            Choose what you need.
+        </h2>
+
+        <p>
+            HerShield is an educational platform. For an actual
+            incident, consider contacting a trusted person,
+            your institution's appropriate reporting channel,
+            or local emergency services if you are in immediate danger.
+        </p>
+
+
+        <div class="report-options">
+
+            <button class="report-option"
+                    onclick="showCampusMessage('I need information')">
+                📚 Information
+            </button>
+
+            <button class="report-option"
+                    onclick="showCampusMessage('I want support')">
+                🤝 Support
+            </button>
+
+            <button class="report-option"
+                    onclick="showCampusMessage('I want to learn about reporting')">
+                📝 Reporting Information
+            </button>
+
+            <button class="report-option"
+                    onclick="showCampusMessage('I need emergency guidance')">
+                🚨 Emergency Guidance
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+  <footer>
+
+        <div class="footer-main">
+
+            <div class="footer-about">
+
+                <a href="index.html" class="logo">
+                    <span class="logo-icon">🛡️</span>
+                    <span>Her<span>Shield</span></span>
+                </a>
+
+                <p>
+                    A digital awareness platform focused on
+                    safety, knowledge and empowerment.
+                </p>
+
+                <div class="socials">
+                    <a href="#">f</a>
+                    <a href="#">𝕏</a>
+                    <a href="#">◎</a>
+                    <a href="#">in</a>
+                </div>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <h4>Quick Links</h4>
+
+                <a href="index.html">Home</a>
+                <a href="#about">About</a>
+                <a href="#hubs">Safety Hubs</a>
+                <a href="contact.html">Contact</a>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <h4>Safety Hubs</h4>
+
+                <a href="campus-hub.html">Campus</a>
+                <a href="workplace-hub.html">Workplace</a>
+                <a href="public-space-hub.html">Public Space</a>
+                <a href="digital-safety-hub.html">Digital Safety</a>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <h4>Support</h4>
+
+                <a href="support-hub.html">Get Support</a>
+                <a href="legal-help-hub.html">Legal Help</a>
+                <a href="contact.html">Contact Us</a>
+                <a href="login.html">Login</a>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 HerShield. Built for awareness and empowerment.
+            </p>
+
+            <div>
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+            </div>
+
+        </div>
+
+    </footer>
+
+<script src="script.js"></script>
+
+<script>
+
+    function showCampusMessage(message) {
+
+        alert(
+            message +
+            "\n\nPlease use an appropriate trusted person, institutional support channel, or relevant emergency service when necessary."
+        );
+
+    }
+
+</script>
+
+</body>
+</html>
+```

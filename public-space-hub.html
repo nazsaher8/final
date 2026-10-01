@@ -1,0 +1,930 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Public Space Hub | HerShield</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* =========================
+           PUBLIC SPACE HUB
+        ========================== */
+
+        .public-hero {
+            min-height: 520px;
+            display: flex;
+            align-items: center;
+            padding: 80px 8%;
+            background:
+                radial-gradient(circle at 85% 25%, rgba(119, 171, 255, .28), transparent 28%),
+                radial-gradient(circle at 15% 80%, rgba(190, 160, 255, .28), transparent 30%),
+                linear-gradient(135deg, #f8f5ff, #eef6ff);
+            overflow: hidden;
+        }
+
+        .public-hero-content {
+            width: 55%;
+        }
+
+        .public-badge {
+            display: inline-block;
+            padding: 9px 18px;
+            border-radius: 30px;
+            background: #e8ddff;
+            color: #5a43a5;
+            font-weight: 700;
+            margin-bottom: 18px;
+        }
+
+        .public-hero h1 {
+            font-size: 52px;
+            line-height: 1.1;
+            color: #243b70;
+            margin-bottom: 20px;
+        }
+
+        .public-hero h1 span {
+            color: #8064d8;
+        }
+
+        .public-hero p {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #53627c;
+            max-width: 650px;
+        }
+
+        .public-visual {
+            width: 45%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .visual-card {
+            width: 350px;
+            height: 350px;
+            border-radius: 45px;
+            background: linear-gradient(145deg, #ffffff, #e9f1ff);
+            box-shadow: 0 25px 60px rgba(55, 84, 145, .18);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .visual-icon {
+            font-size: 130px;
+        }
+
+        .floating-card {
+            position: absolute;
+            padding: 14px 18px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 12px 30px rgba(48, 68, 110, .14);
+            font-weight: 700;
+            color: #38518a;
+        }
+
+        .floating-one {
+            top: 30px;
+            left: -35px;
+        }
+
+        .floating-two {
+            bottom: 35px;
+            right: -40px;
+        }
+
+        /* INTRO */
+
+        .public-intro {
+            padding: 80px 8%;
+            text-align: center;
+        }
+
+        .public-intro h2 {
+            font-size: 38px;
+            color: #263d73;
+            margin-bottom: 15px;
+        }
+
+        .public-intro > p {
+            max-width: 750px;
+            margin: auto;
+            line-height: 1.8;
+            color: #68758c;
+        }
+
+        /* SAFETY CARDS */
+
+        .public-topics {
+            padding: 20px 8% 80px;
+            background: #f8f9ff;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-title h2 {
+            font-size: 36px;
+            color: #273f78;
+        }
+
+        .section-title p {
+            color: #6c7890;
+            margin-top: 10px;
+        }
+
+        .topic-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 22px;
+        }
+
+        .topic-card {
+            background: white;
+            padding: 30px 24px;
+            border-radius: 22px;
+            box-shadow: 0 10px 30px rgba(58, 76, 126, .08);
+            transition: .3s ease;
+            border: 1px solid #edf0fa;
+        }
+
+        .topic-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 18px 35px rgba(58, 76, 126, .14);
+        }
+
+        .topic-icon {
+            width: 65px;
+            height: 65px;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #eee7ff;
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
+
+        .topic-card h3 {
+            color: #30477c;
+            margin-bottom: 10px;
+        }
+
+        .topic-card p {
+            color: #6d7890;
+            line-height: 1.7;
+            font-size: 14px;
+        }
+
+        /* SAFETY PLANNING */
+
+        .planning {
+            padding: 90px 8%;
+        }
+
+        .planning-box {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .planning-text h2 {
+            font-size: 38px;
+            color: #283f76;
+            margin-bottom: 20px;
+        }
+
+        .planning-text p {
+            color: #69758d;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .plan-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .plan-list li {
+            margin: 15px 0;
+            padding: 15px 18px;
+            background: #f4f0ff;
+            border-left: 5px solid #8064d8;
+            border-radius: 10px;
+            color: #465579;
+            font-weight: 600;
+        }
+
+        .planning-card {
+            background: linear-gradient(145deg, #eef5ff, #f6f0ff);
+            padding: 35px;
+            border-radius: 28px;
+            box-shadow: 0 20px 50px rgba(57, 77, 130, .12);
+        }
+
+        .planning-card h3 {
+            color: #2c4378;
+            margin-bottom: 25px;
+            font-size: 24px;
+        }
+
+        .check-item {
+            display: flex;
+            align-items: center;
+            gap: 13px;
+            margin: 17px 0;
+            color: #53627d;
+        }
+
+        .check-item input {
+            width: 19px;
+            height: 19px;
+            accent-color: #8064d8;
+        }
+
+        .progress-area {
+            margin-top: 25px;
+        }
+
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
+            color: #52617c;
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .progress-bar {
+            height: 10px;
+            background: #dfe5f3;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, #8064d8, #5795e8);
+            transition: .3s;
+        }
+
+        /* TIPS */
+
+        .tips-section {
+            padding: 80px 8%;
+            background: linear-gradient(135deg, #f5f0ff, #eef7ff);
+        }
+
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .tip {
+            background: rgba(255,255,255,.85);
+            padding: 30px;
+            border-radius: 22px;
+            border: 1px solid rgba(125, 150, 210, .15);
+        }
+
+        .tip span {
+            font-size: 35px;
+        }
+
+        .tip h3 {
+            margin: 15px 0 10px;
+            color: #30477c;
+        }
+
+        .tip p {
+            color: #69758c;
+            line-height: 1.7;
+            font-size: 14px;
+        }
+
+        /* CTA */
+
+        .public-cta {
+            padding: 90px 8%;
+            text-align: center;
+        }
+
+        .public-cta-box {
+            background: linear-gradient(135deg, #5d79c8, #8064d8);
+            color: white;
+            padding: 60px 30px;
+            border-radius: 30px;
+            box-shadow: 0 20px 50px rgba(76, 91, 160, .22);
+        }
+
+        .public-cta h2 {
+            font-size: 38px;
+            margin-bottom: 15px;
+        }
+
+        .public-cta p {
+            max-width: 650px;
+            margin: auto;
+            line-height: 1.8;
+            opacity: .92;
+        }
+
+        .cta-button {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 14px 28px;
+            background: white;
+            color: #5d69b4;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 800;
+            transition: .3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+        }
+
+        /* RESPONSIVE */
+
+        @media(max-width: 1000px) {
+            .topic-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .public-hero-content {
+                width: 60%;
+            }
+
+            .public-visual {
+                width: 40%;
+            }
+
+            .visual-card {
+                width: 280px;
+                height: 280px;
+            }
+        }
+
+        @media(max-width: 768px) {
+            .public-hero {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .public-hero-content,
+            .public-visual {
+                width: 100%;
+            }
+
+            .public-hero h1 {
+                font-size: 40px;
+            }
+
+            .public-visual {
+                margin-top: 50px;
+            }
+
+            .planning-box {
+                grid-template-columns: 1fr;
+            }
+
+            .tips-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media(max-width: 550px) {
+            .topic-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .public-hero h1 {
+                font-size: 34px;
+            }
+
+            .visual-card {
+                width: 240px;
+                height: 240px;
+            }
+
+            .visual-icon {
+                font-size: 90px;
+            }
+
+            .floating-one {
+                left: -20px;
+            }
+
+            .floating-two {
+                right: -20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- =========================
+     NAVIGATION
+========================== -->
+
+ <header class="navbar">
+
+        <a href="index.html" class="logo">
+            <span class="logo-icon">🛡️</span>
+            <span>Her<span>Shield</span></span>
+        </a>
+
+        <nav id="navMenu">
+
+            <a href="index.html" class="active">Home</a>
+
+            <div class="dropdown">
+                <a href="#hubs">Hubs ▾</a>
+
+                <div class="dropdown-menu">
+                    <a href="campus-hub.html">Campus Hub</a>
+                    <a href="workplace-hub.html">Workplace Hub</a>
+                    <a href="public-space-hub.html">Public Space Hub</a>
+                    <a href="digital-safety-hub.html">Digital Safety Hub</a>
+                    <a href="home-safety-hub.html">Home Safety Hub</a>
+                    <a href="support-hub.html">Support Hub</a>
+                    <a href="legal-help-hub.html">Legal Help Hub</a>
+                </div>
+            </div>
+
+            <a href="About.html">About</a>
+            <a href="contact.html">Contact</a>
+
+        </nav>
+
+        <div class="nav-buttons">
+            <a href="login.html" class="login-btn">Login</a>
+            <a href="emergancy.html" class="emergency-btn">Emergency</a>
+        </div>
+
+        <button class="menu-btn" id="menuBtn">☰</button>
+
+    </header>
+
+
+
+<!-- =========================
+     HERO
+========================== -->
+
+<section class="public-hero">
+
+    <div class="public-hero-content">
+
+        <span class="public-badge">🌍 HerShield Public Space Hub</span>
+
+        <h1>
+            Feel Safer in
+            <span>Every Public Space.</span>
+        </h1>
+
+        <p>
+            Public spaces should allow everyone to move, study, work,
+            travel and enjoy their surroundings with dignity and respect.
+            HerShield provides practical awareness and safety-planning
+            information for everyday situations.
+        </p>
+
+    </div>
+
+    <div class="public-visual">
+
+        <div class="visual-card">
+
+            <div class="visual-icon">
+                🛡️
+            </div>
+
+            <div class="floating-card floating-one">
+                🚍 Transport
+            </div>
+
+            <div class="floating-card floating-two">
+                📍 Stay Aware
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     INTRO
+========================== -->
+
+<section class="public-intro">
+
+    <h2>Safety Belongs Everywhere</h2>
+
+    <p>
+        Harassment and uncomfortable situations can occur in many
+        public environments. Awareness, preparation, clear boundaries
+        and knowing where to seek help can make it easier to respond
+        to concerning situations.
+    </p>
+
+</section>
+
+
+<!-- =========================
+     PUBLIC SPACE TOPICS
+========================== -->
+
+<section class="public-topics">
+
+    <div class="section-title">
+
+        <h2>Explore Public Safety</h2>
+
+        <p>
+            Learn about different everyday environments.
+        </p>
+
+    </div>
+
+
+    <div class="topic-grid">
+
+        <div class="topic-card">
+
+            <div class="topic-icon">🚌</div>
+
+            <h3>Public Transport</h3>
+
+            <p>
+                Learn practical awareness tips for buses,
+                trains, stations and other shared transportation.
+            </p>
+
+        </div>
+
+
+        <div class="topic-card">
+
+            <div class="topic-icon">🚶‍♀️</div>
+
+            <h3>Streets & Roads</h3>
+
+            <p>
+                Stay aware of your surroundings while walking,
+                waiting or travelling through public areas.
+            </p>
+
+        </div>
+
+
+        <div class="topic-card">
+
+            <div class="topic-icon">🎪</div>
+
+            <h3>Events</h3>
+
+            <p>
+                Consider meeting points, trusted contacts and
+                ways to seek assistance during crowded events.
+            </p>
+
+        </div>
+
+
+        <div class="topic-card">
+
+            <div class="topic-icon">🏙️</div>
+
+            <h3>Public Places</h3>
+
+            <p>
+                Understand how to identify staff, security
+                personnel and safer areas when needed.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     SAFETY PLANNING
+========================== -->
+
+<section class="planning">
+
+    <div class="planning-box">
+
+        <div class="planning-text">
+
+            <h2>Create Your Safety Plan</h2>
+
+            <p>
+                A simple plan can help you think ahead before
+                travelling, attending an event or visiting an
+                unfamiliar public place.
+            </p>
+
+            <ul class="plan-list">
+
+                <li>✓ Know where you are going</li>
+
+                <li>✓ Keep a trusted person informed when appropriate</li>
+
+                <li>✓ Identify places where you can ask for help</li>
+
+                <li>✓ Keep important contacts accessible</li>
+
+                <li>✓ Trust your boundaries and seek support if needed</li>
+
+            </ul>
+
+        </div>
+
+
+        <div class="planning-card">
+
+            <h3>🛡️ Quick Safety Checklist</h3>
+
+            <label class="check-item">
+                <input type="checkbox" class="safety-check">
+                I know my destination.
+            </label>
+
+            <label class="check-item">
+                <input type="checkbox" class="safety-check">
+                I know who I can contact if needed.
+            </label>
+
+            <label class="check-item">
+                <input type="checkbox" class="safety-check">
+                I know where I can ask for assistance.
+            </label>
+
+            <label class="check-item">
+                <input type="checkbox" class="safety-check">
+                I have important contacts accessible.
+            </label>
+
+            <label class="check-item">
+                <input type="checkbox" class="safety-check">
+                I feel prepared for my journey.
+            </label>
+
+
+            <div class="progress-area">
+
+                <div class="progress-label">
+                    <span>Preparation</span>
+                    <span id="progressText">0%</span>
+                </div>
+
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     SAFETY TIPS
+========================== -->
+
+<section class="tips-section">
+
+    <div class="section-title">
+
+        <h2>Smart Public-Space Habits</h2>
+
+        <p>
+            Small preparations can make it easier to respond when something feels wrong.
+        </p>
+
+    </div>
+
+
+    <div class="tips-grid">
+
+        <div class="tip">
+
+            <span>👀</span>
+
+            <h3>Stay Aware</h3>
+
+            <p>
+                Pay reasonable attention to your surroundings,
+                especially when entering unfamiliar places.
+            </p>
+
+        </div>
+
+
+        <div class="tip">
+
+            <span>📱</span>
+
+            <h3>Stay Connected</h3>
+
+            <p>
+                Keep important contacts available and let a
+                trusted person know your plans when appropriate.
+            </p>
+
+        </div>
+
+
+        <div class="tip">
+
+            <span>🤝</span>
+
+            <h3>Ask for Help</h3>
+
+            <p>
+                If you feel unsafe or experience harassment,
+                consider moving toward a safer public area and
+                contacting a trusted person or appropriate authority.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     CTA
+========================== -->
+
+<section class="public-cta">
+
+    <div class="public-cta-box">
+
+        <h2>You Don't Have to Face It Alone.</h2>
+
+        <p>
+            HerShield connects awareness with support.
+            Explore our Support Hub to learn about options
+            for getting help and reporting concerns.
+        </p>
+
+        <a href="support-hub.html" class="cta-button">
+            Visit Support Hub →
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FOOTER
+========================== -->
+  <footer>
+
+        <div class="footer-main">
+
+            <div class="footer-about">
+
+                <a href="index.html" class="logo">
+                    <span class="logo-icon">🛡️</span>
+                    <span>Her<span>Shield</span></span>
+                </a>
+
+                <p>
+                    A digital awareness platform focused on
+                    safety, knowledge and empowerment.
+                </p>
+
+                <div class="socials">
+                    <a href="#">f</a>
+                    <a href="#">𝕏</a>
+                    <a href="#">◎</a>
+                    <a href="#">in</a>
+                </div>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <h4>Quick Links</h4>
+
+                <a href="index.html">Home</a>
+                <a href="About.html">About</a>
+                <a href="#hubs">Safety Hubs</a>
+                <a href="contact.html">Contact</a>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <h4>Safety Hubs</h4>
+
+                <a href="campus-hub.html">Campus</a>
+                <a href="workplace-hub.html">Workplace</a>
+                <a href="public-space-hub.html">Public Space</a>
+                <a href="digital-safety-hub.html">Digital Safety</a>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <h4>Support</h4>
+
+                <a href="support-hub.html">Get Support</a>
+                <a href="legal-help-hub.html">Legal Help</a>
+                <a href="contact.html">Contact Us</a>
+                <a href="login.html">Login</a>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 HerShield. Built for awareness and empowerment.
+            </p>
+
+            <div>
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+            </div>
+
+        </div>
+
+    </footer>
+
+
+<!-- =========================
+     JAVASCRIPT
+========================== -->
+
+<script src="script.js"></script>
+
+<script>
+
+    const safetyChecks = document.querySelectorAll(".safety-check");
+    const progressFill = document.getElementById("progressFill");
+    const progressText = document.getElementById("progressText");
+
+    function updateProgress() {
+
+        let completed = 0;
+
+        safetyChecks.forEach(function(check) {
+
+            if (check.checked) {
+                completed++;
+            }
+
+        });
+
+        const percentage =
+            Math.round((completed / safetyChecks.length) * 100);
+
+        progressFill.style.width = percentage + "%";
+        progressText.textContent = percentage + "%";
+
+    }
+
+    safetyChecks.forEach(function(check) {
+
+        check.addEventListener("change", updateProgress);
+
+    });
+
+</script>
+
+</body>
+</html>
+

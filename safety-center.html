@@ -1,0 +1,2245 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Safety Center | HerShield</title>
+
+    <link rel="stylesheet"
+          href="style.css">
+
+
+    <style>
+.navbar {
+    width: 100%;
+    height: 78px;
+    padding: 0 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(255, 255, 255, 0.96);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(12px);
+}
+
+
+/* ---------- LOGO ---------- */
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    font-size: 23px;
+    font-weight: 800;
+    color: var(--dark);
+}
+
+.logo > span:last-child > span {
+    color: var(--primary);
+}
+
+.logo-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #6256d9, #4d7cff);
+    color: white;
+    font-size: 21px;
+    box-shadow: 0 8px 20px rgba(98, 86, 217, 0.25);
+}
+
+
+/* ---------- NAVIGATION ---------- */
+
+.navbar nav {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.navbar nav > a,
+.dropdown > a {
+    color: #555577;
+    font-size: 14px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.navbar nav > a:hover,
+.dropdown > a:hover,
+.navbar nav .active {
+    color: var(--primary);
+}
+
+
+/* ---------- DROPDOWN ---------- */
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 30px;
+    left: -20px;
+    width: 210px;
+    padding: 10px;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: 0.3s;
+}
+
+.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 10px 12px;
+    border-radius: 9px;
+    color: #555577;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.dropdown-menu a:hover {
+    background: var(--lavender);
+    color: var(--primary);
+}
+
+
+/* ---------- NAV BUTTONS ---------- */
+
+.nav-buttons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.login-btn {
+    padding: 10px 19px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    color: var(--primary);
+    font-size: 13px;
+    font-weight: 700;
+    transition: 0.3s;
+}
+
+.login-btn:hover {
+    background: var(--lavender);
+}
+
+.emergency-btn {
+    padding: 11px 18px;
+    border-radius: 10px;
+    background: #fff0f3;
+    color: var(--danger);
+    font-size: 13px;
+    font-weight: 700;
+    transition: 0.3s;
+}
+
+.emergency-btn:hover {
+    background: var(--danger);
+    color: white;
+}
+
+
+/* ---------- MOBILE BUTTON ---------- */
+
+.menu-btn {
+    display: none;
+    border: none;
+    background: var(--lavender);
+    color: var(--primary);
+    font-size: 23px;
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+        /* =====================================
+           SAFETY CENTER HERO
+        ====================================== */
+
+        .safety-hero {
+
+            min-height: 570px;
+
+            padding: 80px 8%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 50px;
+
+            background:
+                radial-gradient(
+                    circle at 85% 20%,
+                    rgba(103,133,225,.18),
+                    transparent 30%
+                ),
+
+                radial-gradient(
+                    circle at 10% 80%,
+                    rgba(143,112,214,.18),
+                    transparent 30%
+                ),
+
+                linear-gradient(
+                    135deg,
+                    #fbf9ff,
+                    #edf6ff
+                );
+
+        }
+
+
+        .safety-hero-text {
+
+            width: 55%;
+
+        }
+
+
+        .safety-badge {
+
+            display: inline-block;
+
+            padding: 10px 20px;
+
+            border-radius: 30px;
+
+            background: #e9e3ff;
+
+            color: #6251a6;
+
+            font-weight: 800;
+
+        }
+
+
+        .safety-hero h1 {
+
+            margin-top: 20px;
+
+            font-size: 55px;
+
+            line-height: 1.1;
+
+            color: #273e76;
+
+        }
+
+
+        .safety-hero h1 span {
+
+            color: #7962d1;
+
+        }
+
+
+        .safety-hero p {
+
+            max-width: 650px;
+
+            margin-top: 20px;
+
+            color: #647189;
+
+            line-height: 1.8;
+
+            font-size: 18px;
+
+        }
+
+
+        .safety-hero-buttons {
+
+            margin-top: 30px;
+
+            display: flex;
+
+            gap: 15px;
+
+            flex-wrap: wrap;
+
+        }
+
+
+        .safety-btn {
+
+            padding: 14px 25px;
+
+            border-radius: 30px;
+
+            text-decoration: none;
+
+            font-weight: 800;
+
+            transition: .3s;
+
+        }
+
+
+        .safety-primary {
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #617bd4,
+                    #8064d8
+                );
+
+            color: white;
+
+            box-shadow:
+                0 12px 30px
+                rgba(83,91,172,.2);
+
+        }
+
+
+        .safety-secondary {
+
+            background: white;
+
+            color: #58699e;
+
+            border: 1px solid #dce2f1;
+
+        }
+
+
+        .safety-btn:hover {
+
+            transform: translateY(-4px);
+
+        }
+
+
+        /* =====================================
+           SHIELD VISUAL
+        ====================================== */
+
+        .safety-visual {
+
+            width: 42%;
+
+            display: flex;
+
+            justify-content: center;
+
+        }
+
+
+        .big-shield {
+
+            width: 280px;
+
+            height: 320px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #e5ecff,
+                    #eee6ff
+                );
+
+            clip-path: polygon(
+                50% 0%,
+                90% 15%,
+                84% 62%,
+                70% 82%,
+                50% 100%,
+                30% 82%,
+                16% 62%,
+                10% 15%
+            );
+
+            box-shadow:
+                0 25px 60px
+                rgba(67,82,150,.2);
+
+        }
+
+
+        .shield-inner {
+
+            width: 210px;
+
+            height: 240px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #738bdf,
+                    #8269d3
+                );
+
+            clip-path: polygon(
+                50% 0%,
+                90% 15%,
+                84% 62%,
+                70% 82%,
+                50% 100%,
+                30% 82%,
+                16% 62%,
+                10% 15%
+            );
+
+            font-size: 75px;
+
+        }
+
+
+        /* =====================================
+           SECTION COMMON
+        ====================================== */
+
+        .center-section {
+
+            padding: 85px 8%;
+
+        }
+
+
+        .center-title {
+
+            text-align: center;
+
+            margin-bottom: 45px;
+
+        }
+
+
+        .center-title h2 {
+
+            color: #293f76;
+
+            font-size: 38px;
+
+        }
+
+
+        .center-title p {
+
+            margin-top: 10px;
+
+            color: #707b90;
+
+        }
+
+
+        /* =====================================
+           TOOLKIT
+        ====================================== */
+
+        .toolkit-section {
+
+            background: #f8f9ff;
+
+        }
+
+
+        .toolkit-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(4,1fr);
+
+            gap: 20px;
+
+        }
+
+
+        .tool-card {
+
+            background: white;
+
+            padding: 28px;
+
+            border-radius: 22px;
+
+            border: 1px solid #e5e9f4;
+
+            box-shadow:
+                0 12px 28px
+                rgba(51,70,120,.07);
+
+            transition: .3s;
+
+        }
+
+
+        .tool-card:hover {
+
+            transform: translateY(-8px);
+
+            box-shadow:
+                0 20px 40px
+                rgba(51,70,120,.13);
+
+        }
+
+
+        .tool-icon {
+
+            width: 60px;
+
+            height: 60px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 17px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #eee8ff,
+                    #e5f0ff
+                );
+
+            font-size: 28px;
+
+            margin-bottom: 18px;
+
+        }
+
+
+        .tool-card h3 {
+
+            color: #344a7c;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .tool-card p {
+
+            color: #707b90;
+
+            font-size: 14px;
+
+            line-height: 1.7;
+
+        }
+
+
+        /* =====================================
+           SUPPORT PATH
+        ====================================== */
+
+        .path-section {
+
+            padding: 90px 8%;
+
+        }
+
+
+        .path-box {
+
+            max-width: 900px;
+
+            margin: auto;
+
+            padding: 45px;
+
+            text-align: center;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #f1f6ff,
+                    #f5efff
+                );
+
+            border-radius: 30px;
+
+            box-shadow:
+                0 20px 50px
+                rgba(58,76,130,.1);
+
+        }
+
+
+        .path-box h2 {
+
+            color: #293f76;
+
+            margin-bottom: 12px;
+
+        }
+
+
+        .path-box p {
+
+            color: #6c778d;
+
+            margin-bottom: 30px;
+
+        }
+
+
+        .path-options {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(5,1fr);
+
+            gap: 12px;
+
+        }
+
+
+        .path-option {
+
+            border: none;
+
+            padding: 20px 10px;
+
+            border-radius: 17px;
+
+            background: white;
+
+            color: #43557f;
+
+            cursor: pointer;
+
+            font-weight: 800;
+
+            box-shadow:
+                0 8px 20px
+                rgba(48,68,120,.08);
+
+            transition: .3s;
+
+        }
+
+
+        .path-option:hover {
+
+            transform: translateY(-5px);
+
+        }
+
+
+        #path-result {
+
+            display: none;
+
+            margin-top: 25px;
+
+            padding: 20px;
+
+            background: white;
+
+            border-radius: 17px;
+
+            color: #53627e;
+
+            line-height: 1.7;
+
+        }
+
+
+        /* =====================================
+           SAFETY PLAN
+        ====================================== */
+
+        .plan-section {
+
+            background: #f8f9ff;
+
+        }
+
+
+        .plan-container {
+
+            max-width: 1000px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap: 35px;
+
+        }
+
+
+        .plan-card {
+
+            background: white;
+
+            padding: 30px;
+
+            border-radius: 22px;
+
+            border: 1px solid #e4e8f3;
+
+            box-shadow:
+                0 12px 30px
+                rgba(52,72,125,.07);
+
+        }
+
+
+        .plan-card h3 {
+
+            color: #344a7c;
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .plan-input {
+
+            width: 100%;
+
+            padding: 13px;
+
+            margin-bottom: 12px;
+
+            border: 1px solid #dfe4f0;
+
+            border-radius: 10px;
+
+            outline: none;
+
+            box-sizing: border-box;
+
+        }
+
+
+        .plan-input:focus {
+
+            border-color: #7a70ce;
+
+        }
+
+
+        .plan-button {
+
+            border: none;
+
+            padding: 13px 22px;
+
+            border-radius: 25px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #617bd4,
+                    #8064d8
+                );
+
+            color: white;
+
+            font-weight: 800;
+
+            cursor: pointer;
+
+        }
+
+
+        #plan-output {
+
+            margin-top: 20px;
+
+            padding: 18px;
+
+            background: #f3f1fb;
+
+            border-radius: 15px;
+
+            color: #58647d;
+
+            display: none;
+
+        }
+
+
+        /* =====================================
+           QUIZ
+        ====================================== */
+
+        .quiz-section {
+
+            padding: 90px 8%;
+
+        }
+
+
+        .quiz-box {
+
+            max-width: 750px;
+
+            margin: auto;
+
+            padding: 40px;
+
+            background: white;
+
+            border-radius: 25px;
+
+            box-shadow:
+                0 20px 50px
+                rgba(48,68,120,.1);
+
+            border: 1px solid #e6e9f3;
+
+        }
+
+
+        .quiz-box h2 {
+
+            color: #293f76;
+
+            text-align: center;
+
+        }
+
+
+        .question {
+
+            margin-top: 30px;
+
+        }
+
+
+        .question h3 {
+
+            color: #3d507d;
+
+            font-size: 17px;
+
+        }
+
+
+        .quiz-option {
+
+            display: block;
+
+            width: 100%;
+
+            margin-top: 10px;
+
+            padding: 13px;
+
+            text-align: left;
+
+            border: 1px solid #dfe4f0;
+
+            border-radius: 10px;
+
+            background: #fafbfe;
+
+            cursor: pointer;
+
+            color: #56637d;
+
+        }
+
+
+        .quiz-option:hover {
+
+            background: #f0edff;
+
+            border-color: #9183d7;
+
+        }
+
+
+        .quiz-submit {
+
+            display: block;
+
+            margin: 30px auto 0;
+
+            padding: 14px 28px;
+
+            border: none;
+
+            border-radius: 30px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #617bd4,
+                    #8064d8
+                );
+
+            color: white;
+
+            font-weight: 900;
+
+            cursor: pointer;
+
+        }
+
+
+        #quiz-result {
+
+            text-align: center;
+
+            margin-top: 25px;
+
+            font-weight: 800;
+
+            color: #5364a0;
+
+        }
+
+
+        /* =====================================
+           REPORT GUIDE
+        ====================================== */
+
+        .report-section {
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #f5f1ff,
+                    #edf7ff
+                );
+
+        }
+
+
+        .report-grid {
+
+            max-width: 1000px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3,1fr);
+
+            gap: 20px;
+
+        }
+
+
+        .report-card {
+
+            background: white;
+
+            padding: 28px;
+
+            border-radius: 20px;
+
+            border-top:
+                4px solid #8064d8;
+
+        }
+
+
+        .report-card h3 {
+
+            color: #394e7c;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .report-card p {
+
+            color: #6e798e;
+
+            line-height: 1.7;
+
+            font-size: 14px;
+
+        }
+
+
+        /* =====================================
+           FINAL CTA
+        ====================================== */
+
+        .center-cta {
+
+            padding: 30px 8% 90px;
+
+        }
+
+
+        .center-cta-box {
+
+            max-width: 1100px;
+
+            margin: auto;
+
+            padding: 60px 30px;
+
+            text-align: center;
+
+            color: white;
+
+            border-radius: 30px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #596fc4,
+                    #8064d8
+                );
+
+        }
+
+
+        .center-cta-box h2 {
+
+            font-size: 38px;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        .center-cta-box p {
+
+            max-width: 650px;
+
+            margin: auto;
+
+            line-height: 1.8;
+
+        }
+
+
+        .center-cta-button {
+
+            display: inline-block;
+
+            margin-top: 25px;
+
+            padding: 14px 28px;
+
+            background: white;
+
+            color: #596bb3;
+
+            border-radius: 30px;
+
+            text-decoration: none;
+
+            font-weight: 900;
+
+        }
+
+
+        /* =====================================
+           RESPONSIVE
+        ====================================== */
+
+        @media(max-width: 950px) {
+
+            .safety-hero {
+
+                flex-direction: column;
+
+                text-align: center;
+
+            }
+
+
+            .safety-hero-text,
+            .safety-visual {
+
+                width: 100%;
+
+            }
+
+
+            .safety-hero-buttons {
+
+                justify-content: center;
+
+            }
+
+
+            .toolkit-grid {
+
+                grid-template-columns:
+                    repeat(2,1fr);
+
+            }
+
+
+            .path-options {
+
+                grid-template-columns:
+                    repeat(3,1fr);
+
+            }
+
+
+            .plan-container {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .report-grid {
+
+                grid-template-columns:
+                    repeat(2,1fr);
+
+            }
+
+        }
+
+
+        @media(max-width: 600px) {
+
+            .safety-hero h1 {
+
+                font-size: 39px;
+
+            }
+
+
+            .big-shield {
+
+                width: 230px;
+
+                height: 270px;
+
+            }
+
+
+            .shield-inner {
+
+                width: 170px;
+
+                height: 205px;
+
+            }
+
+
+            .toolkit-grid,
+            .report-grid {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .path-options {
+
+                grid-template-columns:
+                    repeat(2,1fr);
+
+            }
+
+
+            .quiz-box {
+
+                padding: 25px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================
+     NAVIGATION
+====================================== -->
+
+ <header class="navbar">
+
+        <a href="index.html" class="logo">
+            <span class="logo-icon">🛡️</span>
+            <span>Her<span>Shield</span></span>
+        </a>
+
+        <nav id="navMenu">
+
+            <a href="index.html" class="active">Home</a>
+
+            <div class="dropdown">
+                <a href="#hubs">Hubs ▾</a>
+
+                <div class="dropdown-menu">
+                    <a href="campus-hub.html">Campus Hub</a>
+                    <a href="workplace-hub.html">Workplace Hub</a>
+                    <a href="public-space-hub.html">Public Space Hub</a>
+                    <a href="digital-safety-hub.html">Digital Safety Hub</a>
+                    <a href="home-safety-hub.html">Home Safety Hub</a>
+                    <a href="support-hub.html">Support Hub</a>
+                    <a href="legal-help-hub.html">Legal Help Hub</a>
+                </div>
+            </div>
+
+            <a href="About.html">About</a>
+            <a href="contact.html">Contact</a>
+
+        </nav>
+
+        <div class="nav-buttons">
+            <a href="login.html" class="login-btn">Login</a>
+            <a href="emergancy.html" class="emergency-btn">Emergency</a>
+        </div>
+
+        <button class="menu-btn" id="menuBtn">☰</button>
+
+    </header>
+
+
+
+<!-- =====================================
+     HERO
+====================================== -->
+
+<section class="safety-hero">
+
+
+    <div class="safety-hero-text">
+
+
+        <span class="safety-badge">
+
+            🛡️ HerShield Safety Center
+
+        </span>
+
+
+        <h1>
+
+            Learn. Plan.
+            <span>Stay Prepared.</span>
+
+        </h1>
+
+
+        <p>
+
+            A central place to explore safety tools,
+            understand your support options, build a personal
+            safety plan and test your safety awareness.
+
+        </p>
+
+
+        <div class="safety-hero-buttons">
+
+
+            <a href="#toolkit"
+               class="safety-btn safety-primary">
+
+                Explore Toolkit →
+
+            </a>
+
+
+            <a href="#quiz"
+               class="safety-btn safety-secondary">
+
+                Take Safety Quiz
+
+            </a>
+
+
+        </div>
+
+    </div>
+
+
+
+    <div class="safety-visual">
+
+
+        <div class="big-shield">
+
+
+            <div class="shield-inner">
+
+                🛡️
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================
+     SAFETY TOOLKIT
+====================================== -->
+
+<section class="center-section toolkit-section"
+         id="toolkit">
+
+
+    <div class="center-title">
+
+
+        <h2>
+
+            Your Safety Toolkit
+
+        </h2>
+
+
+        <p>
+
+            Explore practical areas of safety awareness.
+
+        </p>
+
+    </div>
+
+
+    <div class="toolkit-grid">
+
+
+        <div class="tool-card">
+
+
+            <div class="tool-icon">
+
+                🛡️
+
+            </div>
+
+
+            <h3>
+
+                Personal Safety
+
+            </h3>
+
+
+            <p>
+
+                Learn about boundaries, trusted people,
+                preparation and safer decision-making.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="tool-card">
+
+
+            <div class="tool-icon">
+
+                🔐
+
+            </div>
+
+
+            <h3>
+
+                Digital Safety
+
+            </h3>
+
+
+            <p>
+
+                Review privacy, account security and
+                responsible online communication.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="tool-card">
+
+
+            <div class="tool-icon">
+
+                📋
+
+            </div>
+
+
+            <h3>
+
+                Documentation
+
+            </h3>
+
+
+            <p>
+
+                Learn how to organize relevant information
+                if you decide to make a report.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="tool-card">
+
+
+            <div class="tool-icon">
+
+                🤝
+
+            </div>
+
+
+            <h3>
+
+                Support
+
+            </h3>
+
+
+            <p>
+
+                Identify trusted people and appropriate
+                support pathways for your situation.
+
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================
+     SUPPORT PATH
+====================================== -->
+
+<section class="path-section">
+
+
+    <div class="path-box">
+
+
+        <h2>
+
+            Find Your Support Path
+
+        </h2>
+
+
+        <p>
+
+            Select the area that best describes your situation.
+
+        </p>
+
+
+        <div class="path-options">
+
+
+            <button class="path-option"
+                    onclick="showPath('campus')">
+
+                🎓<br>
+                Campus
+
+            </button>
+
+
+            <button class="path-option"
+                    onclick="showPath('workplace')">
+
+                💼<br>
+                Workplace
+
+            </button>
+
+
+            <button class="path-option"
+                    onclick="showPath('public')">
+
+                🌍<br>
+                Public Space
+
+            </button>
+
+
+            <button class="path-option"
+                    onclick="showPath('digital')">
+
+                🔐<br>
+                Online
+
+            </button>
+
+
+            <button class="path-option"
+                    onclick="showPath('home')">
+
+                🏠<br>
+                Home
+
+            </button>
+
+
+        </div>
+
+
+        <div id="path-result"></div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================
+     MY SAFETY PLAN
+====================================== -->
+
+<section class="center-section plan-section">
+
+
+    <div class="center-title">
+
+
+        <h2>
+
+            Create Your Safety Plan
+
+        </h2>
+
+
+        <p>
+
+            Organize trusted contacts and personal safety steps.
+
+        </p>
+
+    </div>
+
+
+    <div class="plan-container">
+
+
+        <div class="plan-card">
+
+
+            <h3>
+
+                👥 Trusted People
+
+            </h3>
+
+
+            <input
+                type="text"
+                id="person1"
+                class="plan-input"
+                placeholder="Trusted person 1">
+
+
+            <input
+                type="text"
+                id="person2"
+                class="plan-input"
+                placeholder="Trusted person 2">
+
+
+            <input
+                type="text"
+                id="person3"
+                class="plan-input"
+                placeholder="Trusted person 3">
+
+
+            <button
+                class="plan-button"
+                onclick="createPlan()">
+
+                Create My Plan
+
+            </button>
+
+
+            <div id="plan-output"></div>
+
+        </div>
+
+
+
+        <div class="plan-card">
+
+
+            <h3>
+
+                🧭 My Safety Steps
+
+            </h3>
+
+
+            <p>
+
+                Think about steps that could help you respond
+                safely if you feel uncomfortable or threatened.
+
+            </p>
+
+
+            <br>
+
+
+            <p>
+
+                ✓ Move toward a safer or populated place.
+
+            </p>
+
+
+            <p>
+
+                ✓ Contact someone you trust.
+
+            </p>
+
+
+            <p>
+
+                ✓ Consider appropriate reporting channels.
+
+            </p>
+
+
+            <p>
+
+                ✓ Preserve relevant information when appropriate.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================
+     QUIZ
+====================================== -->
+
+<section class="quiz-section"
+         id="quiz">
+
+
+    <div class="center-title">
+
+
+        <h2>
+
+            🧠 Safety Awareness Quiz
+
+        </h2>
+
+
+        <p>
+
+            Test your knowledge of basic safety awareness.
+
+        </p>
+
+    </div>
+
+
+    <div class="quiz-box">
+
+
+        <h2>
+
+            Quick Safety Challenge
+
+        </h2>
+
+
+        <div class="question">
+
+
+            <h3>
+
+                1. What is a useful first step when you feel unsafe?
+
+            </h3>
+
+
+            <button class="quiz-option"
+                    onclick="selectAnswer(1, true)">
+
+                Move toward a safer place or trusted person
+
+            </button>
+
+
+            <button class="quiz-option"
+                    onclick="selectAnswer(1, false)">
+
+                Ignore the situation completely
+
+            </button>
+
+        </div>
+
+
+
+        <div class="question">
+
+
+            <h3>
+
+                2. What can help organize an incident report?
+
+            </h3>
+
+
+            <button class="quiz-option"
+                    onclick="selectAnswer(2, true)">
+
+                Relevant dates, details and records
+
+            </button>
+
+
+            <button class="quiz-option"
+                    onclick="selectAnswer(2, false)">
+
+                Random information with no context
+
+            </button>
+
+        </div>
+
+
+
+        <div class="question">
+
+
+            <h3>
+
+                3. Who can potentially provide support?
+
+            </h3>
+
+
+            <button class="quiz-option"
+                    onclick="selectAnswer(3, true)">
+
+                A trusted person or appropriate support service
+
+            </button>
+
+
+            <button class="quiz-option"
+                    onclick="selectAnswer(3, false)">
+
+                Nobody
+
+            </button>
+
+        </div>
+
+
+
+        <button class="quiz-submit"
+                onclick="showQuizResult()">
+
+            Check My Answers
+
+        </button>
+
+
+        <div id="quiz-result"></div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================
+     INCIDENT REPORT GUIDE
+====================================== -->
+
+<section class="center-section report-section">
+
+
+    <div class="center-title">
+
+
+        <h2>
+
+            📋 Incident Report Guide
+
+        </h2>
+
+
+        <p>
+
+            General steps for organizing information before
+            making a report.
+
+        </p>
+
+    </div>
+
+
+    <div class="report-grid">
+
+
+        <div class="report-card">
+
+
+            <h3>
+
+                01 — Record
+
+            </h3>
+
+
+            <p>
+
+                Write down important details such as dates,
+                locations and what occurred.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="report-card">
+
+
+            <h3>
+
+                02 — Preserve
+
+            </h3>
+
+
+            <p>
+
+                Keep relevant messages, screenshots or records
+                securely when appropriate.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="report-card">
+
+
+            <h3>
+
+                03 — Identify
+
+            </h3>
+
+
+            <p>
+
+                Identify the appropriate reporting channel
+                for your school, workplace, platform or
+                relevant authority.
+
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================
+     CTA
+====================================== -->
+
+<section class="center-cta">
+
+
+    <div class="center-cta-box">
+
+
+        <h2>
+
+            Your Safety. Your Voice. Your Shield.
+
+        </h2>
+
+
+        <p>
+
+            Explore the HerShield hubs to learn more about
+            campus, workplace, public-space, digital, home,
+            support and legal safety.
+
+        </p>
+
+
+        <a href="support-hub.html"
+           class="center-cta-button">
+
+            Explore Support Hub →
+
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================
+     FOOTER
+====================================== -->
+
+  <footer>
+
+        <div class="footer-main">
+
+            <div class="footer-about">
+
+                <a href="index.html" class="logo">
+                    <span class="logo-icon">🛡️</span>
+                    <span>Her<span>Shield</span></span>
+                </a>
+
+                <p>
+                    A digital awareness platform focused on
+                    safety, knowledge and empowerment.
+                </p>
+
+                <div class="socials">
+                    <a href="#">f</a>
+                    <a href="#">𝕏</a>
+                    <a href="#">◎</a>
+                    <a href="#">in</a>
+                </div>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <h4>Quick Links</h4>
+
+                <a href="index.html">Home</a>
+                <a href="#about">About</a>
+                <a href="#hubs">Safety Hubs</a>
+                <a href="contact.html">Contact</a>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <h4>Safety Hubs</h4>
+
+                <a href="campus-hub.html">Campus</a>
+                <a href="workplace-hub.html">Workplace</a>
+                <a href="public-space-hub.html">Public Space</a>
+                <a href="digital-safety-hub.html">Digital Safety</a>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <h4>Support</h4>
+
+                <a href="support-hub.html">Get Support</a>
+                <a href="legal-help-hub.html">Legal Help</a>
+                <a href="contact.html">Contact Us</a>
+                <a href="login.html">Login</a>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 HerShield. Built for awareness and empowerment.
+            </p>
+
+            <div>
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+            </div>
+
+        </div>
+
+    </footer>
+
+<!-- =====================================
+     JAVASCRIPT
+====================================== -->
+
+<script src="script.js"></script>
+
+
+<script>
+
+    /* =====================================
+       SUPPORT PATH
+    ====================================== */
+
+    function showPath(type) {
+
+        const result =
+            document.getElementById("path-result");
+
+
+        result.style.display = "block";
+
+
+        if (type === "campus") {
+
+            result.innerHTML =
+                "🎓 <strong>Campus Path:</strong> Explore the Campus Hub for information about boundaries, reporting channels, trusted people and campus support.";
+
+        }
+
+        else if (type === "workplace") {
+
+            result.innerHTML =
+                "💼 <strong>Workplace Path:</strong> Explore the Workplace Hub for information about professional boundaries, workplace procedures and support.";
+
+        }
+
+        else if (type === "public") {
+
+            result.innerHTML =
+                "🌍 <strong>Public Space Path:</strong> Explore the Public Space Hub for general awareness and safer-response guidance.";
+
+        }
+
+        else if (type === "digital") {
+
+            result.innerHTML =
+                "🔐 <strong>Digital Safety Path:</strong> Explore the Digital Safety Hub for privacy, account security and online safety guidance.";
+
+        }
+
+        else if (type === "home") {
+
+            result.innerHTML =
+                "🏠 <strong>Home Safety Path:</strong> Explore the Home Safety Hub for personal boundaries, privacy and safety-planning information.";
+
+        }
+
+    }
+
+
+
+    /* =====================================
+       SAFETY PLAN
+    ====================================== */
+
+    function createPlan() {
+
+        let person1 =
+            document.getElementById("person1").value;
+
+        let person2 =
+            document.getElementById("person2").value;
+
+        let person3 =
+            document.getElementById("person3").value;
+
+
+        const output =
+            document.getElementById("plan-output");
+
+
+        if (
+            person1 === "" &&
+            person2 === "" &&
+            person3 === ""
+        ) {
+
+            output.style.display = "block";
+
+            output.innerHTML =
+                "Please add at least one trusted person.";
+
+            return;
+
+        }
+
+
+        output.style.display = "block";
+
+
+        output.innerHTML =
+            "<strong>My Trusted Support:</strong><br><br>" +
+
+            (person1 || "Not added") +
+            "<br>" +
+
+            (person2 || "Not added") +
+            "<br>" +
+
+            (person3 || "Not added");
+
+    }
+
+
+
+    /* =====================================
+       QUIZ
+    ====================================== */
+
+    let quizScore = 0;
+
+    let answered = 0;
+
+
+    function selectAnswer(question, correct) {
+
+        if (window["question" + question]) {
+
+            return;
+
+        }
+
+
+        window["question" + question] = true;
+
+        answered++;
+
+
+        if (correct) {
+
+            quizScore++;
+
+        }
+
+    }
+
+
+
+    function showQuizResult() {
+
+        const result =
+            document.getElementById("quiz-result");
+
+
+        if (answered < 3) {
+
+            result.innerHTML =
+                "Please answer all 3 questions first.";
+
+            return;
+
+        }
+
+
+        if (quizScore === 3) {
+
+            result.innerHTML =
+                "🌟 Excellent! You understand these basic safety concepts.";
+
+        }
+
+        else if (quizScore === 2) {
+
+            result.innerHTML =
+                "💙 Good work! Review the areas you missed.";
+
+        }
+
+        else {
+
+            result.innerHTML =
+                "📚 Keep learning! Explore the HerShield hubs to build your safety awareness.";
+
+        }
+
+    }
+
+</script>
+
+
+</body>
+
+</html>
+

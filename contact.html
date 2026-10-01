@@ -1,0 +1,999 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Contact | HerShield</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* =========================
+           CONTACT PAGE
+        ========================= */
+
+        .contact-hero {
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+            padding: 70px 8%;
+            background: linear-gradient(
+                135deg,
+                #f8f5ff,
+                #eef7ff
+            );
+        }
+
+        .contact-hero-content {
+            max-width: 650px;
+        }
+
+        .contact-hero h1 {
+            font-size: 52px;
+            color: #243b72;
+            margin-bottom: 18px;
+        }
+
+        .contact-hero h1 span {
+            color: #7564c9;
+        }
+
+        .contact-hero p {
+            color: #606b83;
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        .contact-visual {
+            width: 230px;
+            height: 230px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 90px;
+            box-shadow: 0 20px 55px rgba(60, 75, 130, 0.14);
+            flex-shrink: 0;
+        }
+
+        /* =========================
+           CONTACT SECTION
+        ========================= */
+
+        .contact-section {
+            padding: 75px 8%;
+            background: white;
+        }
+
+        .contact-section.alt {
+            background: #f8f7ff;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-heading h2 {
+            font-size: 34px;
+            color: #243b72;
+            margin-bottom: 10px;
+        }
+
+        .section-heading p {
+            color: #68728a;
+            line-height: 1.7;
+        }
+
+        /* =========================
+           CONTACT GRID
+        ========================= */
+
+        .contact-grid {
+            max-width: 1100px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 0.85fr 1.15fr;
+            gap: 30px;
+            align-items: start;
+        }
+
+        /* INFO */
+
+        .contact-info {
+            background: linear-gradient(
+                145deg,
+                #7564c9,
+                #4387d8
+            );
+            color: white;
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0 18px 45px rgba(60, 75, 130, 0.15);
+        }
+
+        .contact-info h2 {
+            font-size: 28px;
+            margin-bottom: 12px;
+        }
+
+        .contact-info > p {
+            color: #eef2ff;
+            line-height: 1.7;
+            margin-bottom: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+            padding: 18px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.18);
+        }
+
+        .contact-item:last-child {
+            border-bottom: none;
+        }
+
+        .contact-item-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            background: rgba(255,255,255,0.16);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+
+        .contact-item h3 {
+            font-size: 15px;
+            margin-bottom: 5px;
+        }
+
+        .contact-item p {
+            font-size: 14px;
+            color: #edf0ff;
+            line-height: 1.5;
+        }
+
+        /* FORM */
+
+        .contact-form {
+            background: white;
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0 15px 45px rgba(60, 75, 130, 0.10);
+            border: 1px solid #eeeeF7;
+        }
+
+        .contact-form h2 {
+            color: #243b72;
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+
+        .contact-form-intro {
+            color: #747e95;
+            margin-bottom: 28px;
+            line-height: 1.6;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #34446d;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 14px 15px;
+            border: 1px solid #d9ddec;
+            border-radius: 12px;
+            font-family: inherit;
+            font-size: 14px;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: #7564c9;
+            box-shadow: 0 0 0 3px rgba(117,100,201,0.10);
+        }
+
+        .form-group textarea {
+            min-height: 135px;
+            resize: vertical;
+        }
+
+        .send-button {
+            width: 100%;
+            border: none;
+            padding: 15px;
+            border-radius: 13px;
+            background: linear-gradient(
+                135deg,
+                #7564c9,
+                #4387d8
+            );
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .send-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(67,135,216,0.25);
+        }
+
+        .form-message {
+            display: none;
+            margin-top: 18px;
+            padding: 14px;
+            background: #f0f7ff;
+            border-left: 4px solid #4387d8;
+            border-radius: 8px;
+            color: #53627d;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .form-note {
+            margin-top: 18px;
+            text-align: center;
+            color: #858da0;
+            font-size: 12px;
+            line-height: 1.6;
+        }
+
+        /* =========================
+           HELP CARDS
+        ========================= */
+
+        .help-grid {
+            max-width: 1050px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .help-card {
+            background: white;
+            padding: 30px 25px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 12px 35px rgba(60,75,130,0.08);
+            transition: 0.3s;
+        }
+
+        .help-card:hover {
+            transform: translateY(-6px);
+        }
+
+        .help-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 18px;
+            border-radius: 18px;
+            background: #eeeaff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+        }
+
+        .help-card h3 {
+            color: #34446d;
+            margin-bottom: 10px;
+        }
+
+        .help-card p {
+            color: #737c91;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        /* =========================
+           CTA
+        ========================= */
+
+        .contact-cta {
+            max-width: 900px;
+            margin: auto;
+            padding: 50px 30px;
+            text-align: center;
+            border-radius: 25px;
+            background: linear-gradient(
+                135deg,
+                #eef0ff,
+                #edf8ff
+            );
+        }
+
+        .contact-cta h2 {
+            color: #243b72;
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+
+        .contact-cta p {
+            max-width: 650px;
+            margin: 0 auto 25px;
+            color: #667085;
+            line-height: 1.8;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 14px 28px;
+            background: #243b72;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .cta-button:hover {
+            background: #7564c9;
+            transform: translateY(-2px);
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 850px) {
+
+            .contact-hero {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .help-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .contact-hero h1 {
+                font-size: 38px;
+            }
+
+            .contact-hero {
+                padding: 55px 6%;
+            }
+
+            .contact-form,
+            .contact-info {
+                padding: 28px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+
+            .help-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================
+         NAVIGATION
+    ========================== -->
+
+     <header class="navbar">
+
+        <a href="index.html" class="logo">
+            <span class="logo-icon">🛡️</span>
+            <span>Her<span>Shield</span></span>
+        </a>
+
+        <nav id="navMenu">
+
+            <a href="index.html" class="active">Home</a>
+
+            <div class="dropdown">
+                <a href="#hubs">Hubs ▾</a>
+
+                <div class="dropdown-menu">
+                    <a href="campus-hub.html">Campus Hub</a>
+                    <a href="workplace-hub.html">Workplace Hub</a>
+                    <a href="public-space-hub.html">Public Space Hub</a>
+                    <a href="digital-safety-hub.html">Digital Safety Hub</a>
+                    <a href="home-safety-hub.html">Home Safety Hub</a>
+                    <a href="support-hub.html">Support Hub</a>
+                    <a href="legal-help-hub.html">Legal Help Hub</a>
+                </div>
+            </div>
+
+            <a href="About.html">About</a>
+            <a href="contact.html">Contact</a>
+
+        </nav>
+
+        <div class="nav-buttons">
+            <a href="login.html" class="login-btn">Login</a>
+            <a href="emergancy.html" class="emergency-btn">Emergency</a>
+        </div>
+
+        <button class="menu-btn" id="menuBtn">☰</button>
+
+    </header>
+
+
+
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
+    <section class="contact-hero">
+
+        <div class="contact-hero-content">
+
+            <h1>
+                We're Here to
+                <span>Listen.</span>
+            </h1>
+
+            <p>
+                Have a question about HerShield, our safety hubs,
+                or this project? Send us a message and explore
+                the available information and support resources.
+            </p>
+
+        </div>
+
+        <div class="contact-visual">
+            💬
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         CONTACT FORM + INFO
+    ========================== -->
+
+    <section class="contact-section">
+
+        <div class="contact-grid">
+
+
+            <!-- CONTACT INFORMATION -->
+
+            <div class="contact-info">
+
+                <h2>Get in Touch</h2>
+
+                <p>
+                    Use the information below to understand the
+                    different ways you can interact with the
+                    HerShield project.
+                </p>
+
+
+                <div class="contact-item">
+
+                    <div class="contact-item-icon">
+                        ✉️
+                    </div>
+
+                    <div>
+
+                        <h3>Email</h3>
+
+                        <p>
+                            HerShield project contact
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="contact-item">
+
+                    <div class="contact-item-icon">
+                        💡
+                    </div>
+
+                    <div>
+
+                        <h3>Questions</h3>
+
+                        <p>
+                            Ask about website features,
+                            safety hubs, or project information.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="contact-item">
+
+                    <div class="contact-item-icon">
+                        🤝
+                    </div>
+
+                    <div>
+
+                        <h3>Support Resources</h3>
+
+                        <p>
+                            Visit the Support Hub for guidance
+                            and educational information.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="contact-item">
+
+                    <div class="contact-item-icon">
+                        🔒
+                    </div>
+
+                    <div>
+
+                        <h3>Privacy</h3>
+
+                        <p>
+                            Avoid sharing sensitive personal
+                            information in this demonstration form.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- CONTACT FORM -->
+
+            <div class="contact-form">
+
+                <h2>Send a Message</h2>
+
+                <p class="contact-form-intro">
+                    Fill out the form below to demonstrate how
+                    a contact system could work.
+                </p>
+
+
+                <form id="contactForm">
+
+                    <div class="form-row">
+
+                        <div class="form-group">
+
+                            <label for="name">
+                                Your Name
+                            </label>
+
+                            <input
+                                type="text"
+                                id="name"
+                                placeholder="Enter your name"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="email">
+                                Email Address
+                            </label>
+
+                            <input
+                                type="email"
+                                id="email"
+                                placeholder="Enter your email"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="topic">
+                            Message Topic
+                        </label>
+
+                        <select id="topic" required>
+
+                            <option value="">
+                                Select a topic
+                            </option>
+
+                            <option value="Website Question">
+                                Website Question
+                            </option>
+
+                            <option value="Safety Hub">
+                                Safety Hub
+                            </option>
+
+                            <option value="Technical Issue">
+                                Technical Issue
+                            </option>
+
+                            <option value="Project Feedback">
+                                Project Feedback
+                            </option>
+
+                            <option value="Other">
+                                Other
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="message">
+                            Your Message
+                        </label>
+
+                        <textarea
+                            id="message"
+                            placeholder="Write your message..."
+                            required
+                        ></textarea>
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="send-button"
+                    >
+                        Send Message →
+                    </button>
+
+
+                    <div
+                        class="form-message"
+                        id="formMessage"
+                    ></div>
+
+
+                    <p class="form-note">
+                        This is a frontend school-project demonstration.
+                        The message is not actually sent to a server.
+                    </p>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         HOW CAN WE HELP
+    ========================== -->
+
+    <section class="contact-section alt">
+
+        <div class="section-heading">
+
+            <h2>How Can HerShield Help?</h2>
+
+            <p>
+                Choose an area to explore more information.
+            </p>
+
+        </div>
+
+
+        <div class="help-grid">
+
+
+            <div class="help-card">
+
+                <div class="help-icon">
+                    🎓
+                </div>
+
+                <h3>Campus Safety</h3>
+
+                <p>
+                    Explore awareness and safety information
+                    for schools and colleges.
+                </p>
+
+            </div>
+
+
+            <div class="help-card">
+
+                <div class="help-icon">
+                    💼
+                </div>
+
+                <h3>Workplace Safety</h3>
+
+                <p>
+                    Learn about professional boundaries,
+                    respect, and support pathways.
+                </p>
+
+            </div>
+
+
+            <div class="help-card">
+
+                <div class="help-icon">
+                    🔐
+                </div>
+
+                <h3>Digital Safety</h3>
+
+                <p>
+                    Explore online privacy, boundaries,
+                    and digital safety awareness.
+                </p>
+
+            </div>
+
+
+            <div class="help-card">
+
+                <div class="help-icon">
+                    🤝
+                </div>
+
+                <h3>Support</h3>
+
+                <p>
+                    Find information about trusted people,
+                    reporting preparation, and support options.
+                </p>
+
+            </div>
+
+
+            <div class="help-card">
+
+                <div class="help-icon">
+                    ⚖️
+                </div>
+
+                <h3>Legal Information</h3>
+
+                <p>
+                    Explore general educational information
+                    about reporting and documentation.
+                </p>
+
+            </div>
+
+
+            <div class="help-card">
+
+                <div class="help-icon">
+                    🛡️
+                </div>
+
+                <h3>Safety Center</h3>
+
+                <p>
+                    Use interactive safety tools and
+                    preparation resources.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         CTA
+    ========================== -->
+
+    <section class="contact-section">
+
+        <div class="contact-cta">
+
+            <h2>Need Safety Information?</h2>
+
+            <p>
+                Explore the HerShield Support Hub for educational
+                guidance, support pathways, and information about
+                preparing for a reporting conversation.
+            </p>
+
+            <a
+                href="support-hub.html"
+                class="cta-button"
+            >
+                Visit Support Hub →
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+ 
+  <footer>
+
+        <div class="footer-main">
+
+            <div class="footer-about">
+
+                <a href="index.html" class="logo">
+                    <span class="logo-icon">🛡️</span>
+                    <span>Her<span>Shield</span></span>
+                </a>
+
+                <p>
+                    A digital awareness platform focused on
+                    safety, knowledge and empowerment.
+                </p>
+
+                <div class="socials">
+                    <a href="#">f</a>
+                    <a href="#">𝕏</a>
+                    <a href="#">◎</a>
+                    <a href="#">in</a>
+                </div>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <h4>Quick Links</h4>
+
+                <a href="index.html">Home</a>
+                <a href="#about">About</a>
+                <a href="#hubs">Safety Hubs</a>
+                <a href="contact.html">Contact</a>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <h4>Safety Hubs</h4>
+
+                <a href="campus-hub.html">Campus</a>
+                <a href="workplace-hub.html">Workplace</a>
+                <a href="public-space-hub.html">Public Space</a>
+                <a href="digital-safety-hub.html">Digital Safety</a>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <h4>Support</h4>
+
+                <a href="support-hub.html">Get Support</a>
+                <a href="legal-help-hub.html">Legal Help</a>
+                <a href="contact.html">Contact Us</a>
+                <a href="login.html">Login</a>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 HerShield. Built for awareness and empowerment.
+            </p>
+
+            <div>
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+            </div>
+
+        </div>
+
+    </footer>
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script>
+
+        const contactForm =
+            document.getElementById("contactForm");
+
+        const formMessage =
+            document.getElementById("formMessage");
+
+
+        contactForm.addEventListener(
+            "submit",
+            function(event) {
+
+                event.preventDefault();
+
+                const name =
+                    document.getElementById("name").value;
+
+                const topic =
+                    document.getElementById("topic").value;
+
+
+                formMessage.style.display = "block";
+
+                formMessage.innerHTML =
+                    "Thank you, " +
+                    name +
+                    "! Your message has been prepared under the topic \"" +
+                    topic +
+                    "\". This school-project form is only a frontend demonstration, so the message has not been sent to a server.";
+
+                contactForm.reset();
+
+            }
+        );
+
+    </script>
+
+</body>
+</html>
+```

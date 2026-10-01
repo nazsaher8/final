@@ -1,0 +1,933 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Emergency | HerShield</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        /* =========================
+           EMERGENCY HERO
+        ========================= */
+
+        .emergency-page {
+            background: #f8f7ff;
+        }
+
+        .emergency-hero {
+            min-height: 480px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 60px;
+            padding: 80px 8%;
+            background: linear-gradient(
+                135deg,
+                #f9f7ff,
+                #edf7ff
+            );
+        }
+
+        .emergency-content {
+            max-width: 650px;
+        }
+
+        .emergency-label {
+            display: inline-block;
+            padding: 9px 18px;
+            border-radius: 30px;
+            background: #e9e5ff;
+            color: #6352b5;
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .emergency-content h1 {
+            font-size: 54px;
+            line-height: 1.1;
+            color: #243b72;
+            margin-bottom: 20px;
+        }
+
+        .emergency-content h1 span {
+            color: #7564c9;
+        }
+
+        .emergency-content p {
+            color: #626d85;
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .emergency-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .emergency-main-btn {
+            display: inline-block;
+            padding: 15px 28px;
+            border-radius: 30px;
+            background: #243b72;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .emergency-main-btn:hover {
+            background: #7564c9;
+            transform: translateY(-3px);
+        }
+
+        .emergency-support-btn {
+            display: inline-block;
+            padding: 15px 28px;
+            border-radius: 30px;
+            border: 2px solid #7564c9;
+            color: #7564c9;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .emergency-support-btn:hover {
+            background: #7564c9;
+            color: white;
+        }
+
+
+        /* =========================
+           SHIELD
+        ========================= */
+
+        .emergency-shield {
+            width: 270px;
+            height: 310px;
+            background: linear-gradient(
+                145deg,
+                #7564c9,
+                #4387d8
+            );
+
+            clip-path: polygon(
+                50% 0%,
+                90% 15%,
+                86% 65%,
+                50% 100%,
+                14% 65%,
+                10% 15%
+            );
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 95px;
+
+            filter: drop-shadow(
+                0 25px 25px rgba(55,70,125,0.20)
+            );
+        }
+
+
+        /* =========================
+           GENERAL SECTION
+        ========================= */
+
+        .emergency-section {
+            padding: 75px 8%;
+            background: white;
+        }
+
+        .emergency-section.light {
+            background: #f8f7ff;
+        }
+
+        .emergency-heading {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .emergency-heading h2 {
+            color: #243b72;
+            font-size: 35px;
+            margin-bottom: 10px;
+        }
+
+        .emergency-heading p {
+            color: #68728a;
+            line-height: 1.7;
+        }
+
+
+        /* =========================
+           ACTION CARDS
+        ========================= */
+
+        .emergency-grid {
+            max-width: 1100px;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 24px;
+        }
+
+        .emergency-card {
+            padding: 32px 25px;
+            background: white;
+
+            border-radius: 20px;
+
+            text-align: center;
+
+            box-shadow:
+                0 12px 35px rgba(60,75,130,0.09);
+
+            border: 1px solid #eeeef7;
+
+            transition: 0.3s;
+        }
+
+        .emergency-card:hover {
+            transform: translateY(-7px);
+
+            box-shadow:
+                0 20px 40px rgba(60,75,130,0.14);
+        }
+
+        .emergency-icon {
+            width: 68px;
+            height: 68px;
+
+            margin: 0 auto 18px;
+
+            border-radius: 20px;
+
+            background: #eeeaff;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 31px;
+        }
+
+        .emergency-card h3 {
+            color: #34446d;
+            margin-bottom: 10px;
+        }
+
+        .emergency-card p {
+            color: #737c91;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+
+        /* =========================
+           THREE STEPS
+        ========================= */
+
+        .steps {
+            max-width: 1000px;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 25px;
+        }
+
+        .step {
+            background: white;
+
+            padding: 30px;
+
+            border-radius: 20px;
+
+            box-shadow:
+                0 10px 30px rgba(60,75,130,0.08);
+        }
+
+        .step-number {
+            width: 48px;
+            height: 48px;
+
+            border-radius: 50%;
+
+            background: #eeeaff;
+            color: #7564c9;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-weight: bold;
+
+            margin-bottom: 18px;
+        }
+
+        .step h3 {
+            color: #34446d;
+            margin-bottom: 10px;
+        }
+
+        .step p {
+            color: #737c91;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+
+        /* =========================
+           IMPORTANT BOX
+        ========================= */
+
+        .important-box {
+            max-width: 900px;
+            margin: auto;
+
+            padding: 35px;
+
+            text-align: center;
+
+            border-radius: 22px;
+
+            background: #eef6ff;
+
+            border: 1px solid #dceafa;
+        }
+
+        .important-box h2 {
+            color: #243b72;
+            margin-bottom: 12px;
+        }
+
+        .important-box p {
+            color: #626d85;
+            line-height: 1.8;
+            font-size: 14px;
+        }
+
+
+        /* =========================
+           CTA
+        ========================= */
+
+        .emergency-cta {
+            max-width: 900px;
+            margin: auto;
+
+            text-align: center;
+
+            padding: 50px 30px;
+
+            border-radius: 25px;
+
+            background: linear-gradient(
+                135deg,
+                #eeecff,
+                #eaf7ff
+            );
+        }
+
+        .emergency-cta h2 {
+            color: #243b72;
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+
+        .emergency-cta p {
+            max-width: 650px;
+            margin: 0 auto 25px;
+
+            color: #667085;
+            line-height: 1.8;
+        }
+
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 900px) {
+
+            .emergency-hero {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .emergency-buttons {
+                justify-content: center;
+            }
+
+            .emergency-grid,
+            .steps {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+        }
+
+        @media (max-width: 600px) {
+
+            .emergency-hero {
+                padding: 60px 6%;
+            }
+
+            .emergency-content h1 {
+                font-size: 39px;
+            }
+
+            .emergency-content p {
+                font-size: 16px;
+            }
+
+            .emergency-shield {
+                width: 190px;
+                height: 220px;
+                font-size: 70px;
+            }
+
+            .emergency-grid,
+            .steps {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body class="emergency-page">
+
+
+    <!-- =================================
+         SAME NAVIGATION AS INDEX
+    ================================== -->
+
+    <header class="navbar">
+
+        <a href="index.html" class="logo">
+            <span class="logo-icon">🛡️</span>
+            <span>Her<span>Shield</span></span>
+        </a>
+
+        <nav id="navMenu">
+
+            <a href="index.html" class="active">Home</a>
+
+            <div class="dropdown">
+                <a href="#hubs">Hubs ▾</a>
+
+                <div class="dropdown-menu">
+                    <a href="campus-hub.html">Campus Hub</a>
+                    <a href="workplace-hub.html">Workplace Hub</a>
+                    <a href="public-space-hub.html">Public Space Hub</a>
+                    <a href="digital-safety-hub.html">Digital Safety Hub</a>
+                    <a href="home-safety-hub.html">Home Safety Hub</a>
+                    <a href="support-hub.html">Support Hub</a>
+                    <a href="legal-help-hub.html">Legal Help Hub</a>
+                </div>
+            </div>
+
+            <a href="About.html">About</a>
+            <a href="contact.html">Contact</a>
+
+        </nav>
+
+        <div class="nav-buttons">
+            <a href="login.html" class="login-btn">Login</a>
+            <a href="emergancy.html" class="emergency-btn">Emergency</a>
+        </div>
+
+        <button class="menu-btn" id="menuBtn">☰</button>
+
+    </header>
+
+
+    <!-- =================================
+         HERO
+    ================================== -->
+
+    <section class="emergency-hero">
+
+
+        <div class="emergency-content">
+
+
+            <div class="emergency-label">
+                🛡️ URGENT SAFETY
+            </div>
+
+
+            <h1>
+
+                If You Feel
+                <span>Unsafe,</span>
+                Get Support.
+
+            </h1>
+
+
+            <p>
+
+                If you are in immediate danger, focus on reaching
+                a safer place and contacting the appropriate
+                emergency service or trusted person in your area.
+
+            </p>
+
+
+            <div class="emergency-buttons">
+
+                <a
+                    href="support-hub.html"
+                    class="emergency-main-btn"
+                >
+                    Get Support →
+                </a>
+
+
+                <a
+                    href="contact.html"
+                    class="emergency-support-btn"
+                >
+                    Contact HerShield
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="emergency-shield">
+            🛡️
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =================================
+         QUICK ACTIONS
+    ================================== -->
+
+    <section class="emergency-section">
+
+
+        <div class="emergency-heading">
+
+            <h2>
+                What Can You Do Right Now?
+            </h2>
+
+            <p>
+                Focus on immediate safety and choose the
+                action that fits your situation.
+            </p>
+
+        </div>
+
+
+        <div class="emergency-grid">
+
+
+            <div class="emergency-card">
+
+                <div class="emergency-icon">
+                    🏃
+                </div>
+
+                <h3>
+                    Move to Safety
+                </h3>
+
+                <p>
+                    If possible, move toward a safer location,
+                    a populated area, or somewhere you feel secure.
+                </p>
+
+            </div>
+
+
+            <div class="emergency-card">
+
+                <div class="emergency-icon">
+                    📞
+                </div>
+
+                <h3>
+                    Contact Emergency Services
+                </h3>
+
+                <p>
+                    If you are facing immediate danger, contact
+                    the appropriate emergency service available
+                    in your location.
+                </p>
+
+            </div>
+
+
+            <div class="emergency-card">
+
+                <div class="emergency-icon">
+                    🤝
+                </div>
+
+                <h3>
+                    Reach a Trusted Person
+                </h3>
+
+                <p>
+                    Contact someone you trust and tell them what
+                    is happening when it is safe to do so.
+                </p>
+
+            </div>
+
+
+            <div class="emergency-card">
+
+                <div class="emergency-icon">
+                    📱
+                </div>
+
+                <h3>
+                    Keep Your Phone Available
+                </h3>
+
+                <p>
+                    If safe, keep your phone accessible so you
+                    can communicate with someone who can help.
+                </p>
+
+            </div>
+
+
+            <div class="emergency-card">
+
+                <div class="emergency-icon">
+                    🔐
+                </div>
+
+                <h3>
+                    Protect Your Privacy
+                </h3>
+
+                <p>
+                    Avoid sharing sensitive information publicly
+                    and use trusted communication channels.
+                </p>
+
+            </div>
+
+
+            <div class="emergency-card">
+
+                <div class="emergency-icon">
+                    🧭
+                </div>
+
+                <h3>
+                    Choose Your Next Step
+                </h3>
+
+                <p>
+                    Once you are safer, explore the appropriate
+                    HerShield hub for additional information.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================
+         THREE STEPS
+    ================================== -->
+
+    <section class="emergency-section light">
+
+
+        <div class="emergency-heading">
+
+            <h2>
+                Remember Three Simple Steps
+            </h2>
+
+            <p>
+                Keep your focus on immediate safety first.
+            </p>
+
+        </div>
+
+
+        <div class="steps">
+
+
+            <div class="step">
+
+                <div class="step-number">
+                    1
+                </div>
+
+                <h3>
+                    Stay Aware
+                </h3>
+
+                <p>
+                    Pay attention to your surroundings and
+                    identify a safer place or person you can reach.
+                </p>
+
+            </div>
+
+
+            <div class="step">
+
+                <div class="step-number">
+                    2
+                </div>
+
+                <h3>
+                    Reach Out
+                </h3>
+
+                <p>
+                    Contact emergency services or someone you
+                    trust when you can do so safely.
+                </p>
+
+            </div>
+
+
+            <div class="step">
+
+                <div class="step-number">
+                    3
+                </div>
+
+                <h3>
+                    Get Support
+                </h3>
+
+                <p>
+                    When immediate danger has passed, explore
+                    appropriate support and reporting options.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================
+         IMPORTANT INFORMATION
+    ================================== -->
+
+    <section class="emergency-section">
+
+
+        <div class="important-box">
+
+            <h2>
+                Important Safety Note
+            </h2>
+
+            <p>
+
+                HerShield is an educational awareness project.
+                It is not an emergency service and does not replace
+                emergency responders, medical care, counseling,
+                or professional legal advice.
+
+                For immediate danger, use the appropriate
+                emergency service available in your location.
+
+            </p>
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =================================
+         CTA
+    ================================== -->
+
+    <section class="emergency-section light">
+
+
+        <div class="emergency-cta">
+
+            <h2>
+                Need More Guidance?
+            </h2>
+
+            <p>
+                Explore the HerShield Support Hub for information
+                about support pathways, reporting preparation,
+                and safety resources.
+            </p>
+
+
+            <a
+                href="support-hub.html"
+                class="emergency-main-btn"
+            >
+                Open Support Hub →
+            </a>
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =================================
+         SAME FOOTER AS INDEX
+    ================================== -->
+
+     <footer>
+
+        <div class="footer-main">
+
+            <div class="footer-about">
+
+                <a href="index.html" class="logo">
+                    <span class="logo-icon">🛡️</span>
+                    <span>Her<span>Shield</span></span>
+                </a>
+
+                <p>
+                    A digital awareness platform focused on
+                    safety, knowledge and empowerment.
+                </p>
+
+                <div class="socials">
+                    <a href="#">f</a>
+                    <a href="#">𝕏</a>
+                    <a href="#">◎</a>
+                    <a href="#">in</a>
+                </div>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <h4>Quick Links</h4>
+
+                <a href="index.html">Home</a>
+                <a href="#about">About</a>
+                <a href="#hubs">Safety Hubs</a>
+                <a href="contact.html">Contact</a>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <h4>Safety Hubs</h4>
+
+                <a href="campus-hub.html">Campus</a>
+                <a href="workplace-hub.html">Workplace</a>
+                <a href="public-space-hub.html">Public Space</a>
+                <a href="digital-safety-hub.html">Digital Safety</a>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <h4>Support</h4>
+
+                <a href="support-hub.html">Get Support</a>
+                <a href="legal-help-hub.html">Legal Help</a>
+                <a href="contact.html">Contact Us</a>
+                <a href="login.html">Login</a>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 HerShield. Built for awareness and empowerment.
+            </p>
+
+            <div>
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+            </div>
+
+        </div>
+
+    </footer>
+
+
+
+
+    <!-- =================================
+         JAVASCRIPT
+    ================================== -->
+
+    <script>
+
+        const supportButton =
+            document.querySelector(".emergency-main-btn");
+
+
+        supportButton.addEventListener(
+            "click",
+            function(event) {
+
+                const confirmation =
+                    confirm(
+                        "If you are in immediate danger, contact the appropriate emergency service in your location. Continue to the HerShield Support Hub?"
+                    );
+
+                if (!confirmation) {
+
+                    event.preventDefault();
+
+                }
+
+            }
+        );
+
+    </script>
+
+
+</body>
+
+</html>
+```
